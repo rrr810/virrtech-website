@@ -191,7 +191,7 @@
     if(d.note) rows.push(['Your note',d.note]);
     rows.push(['Transaction ref',d.ref]);
     document.getElementById('bkRrows').innerHTML=rRows(rows);
-    var st=document.getElementById('rStamp'); if(st) st.textContent = TEST ? 'TEST · PAID KES 1' : 'PAID · KES '+FEE;
+    var st=document.getElementById('rStamp'); if(st) st.innerHTML = TEST ? '<span class="p1">PAID</span><span class="p2">KES 1 · TEST</span>' : '<span class="p1">PAID</span><span class="p2">KES '+FEE+'</span>';
     var tot=document.getElementById('rTotal'); if(tot) tot.textContent=FEE_AMT;
     var dt=document.getElementById('rDate'); if(dt) dt.textContent=dstr(new Date())+' · EAT';
     var box=document.getElementById('bkReceipt'); box.style.display='block';
