@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://virrtech.co.ke/sitemap.xml
+Sitemap: https://virrtechsolutions.co.ke/sitemap.xml
