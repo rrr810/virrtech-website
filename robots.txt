@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap: add once the real domain is live
+Sitemap: https://virrtech.co.ke/sitemap.xml

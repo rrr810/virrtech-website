@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a free consult — VirrTech Solutions</title>
+<meta name="description" content="Book a free 30-minute consultation with VirrTech Solutions. Pick a day and time — we confirm on WhatsApp instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%23081A25'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="index.html"><svg width="36" height="36" viewBox="0 0 100 100"><rect width="100" height="100" rx="3" fill="#081722"/><path d="M28 28 L50 70 L72 28" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="square"/></svg><span><span class="nm">VirrTech</span><span class="sd">Solutions</span></span></a>
+    <nav class="nav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a class="on" href="start.html">Contact</a><a class="btn btn-p btn-sm" href="start.html">Start a project</a></nav>
+    <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('mo')">☰</button>
+  </div>
+</header>
+<div class="mnav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a class="btn btn-p" href="start.html">Start a project</a></div>
+
+<section class="hero" style="padding-top:90px;">
+  <div class="wrap">
+    <div class="eyebrow-hero"><span class="rule"></span><span class="lab" style="color:var(--gold-500);">Free 30-minute consult</span></div>
+    <h1 class="t1">Pick a slot.<br>We'll call you <em>on it</em>.</h1>
+    <p class="lead" style="color:#A9BAC6;">No forms marathon — just choose a day and time. We confirm on WhatsApp immediately and a human calls you at your slot. Honest advice either way, even if the answer is "you don't need us yet".</p>
+  </div>
+</section>
+
+<section class="sec" style="border-bottom:0;">
+  <div class="wrap">
+    <div class="secgrid">
+      <div class="c5" data-rv>
+        <div class="lab">Before you book</div>
+        <div class="mt">
+          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;"><div class="mono-n" style="color:var(--gold-600);">☎</div><div><b style="color:var(--navy-900);">Call or WhatsApp?</b><span class="small" style="display:block;">We'll call your number at the slot — or WhatsApp-call if you prefer.</span></div></div>
+          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;"><div class="mono-n" style="color:var(--gold-600);">⏱</div><div><b style="color:var(--navy-900);">What happens in it</b><span class="small" style="display:block;">30 minutes: you talk, we listen, then honest direction — and a fixed quote in 3–5 days if there's a fit.</span></div></div>
+          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;border-bottom:0;"><div class="mono-n" style="color:var(--gold-600);">⚡</div><div><b style="color:var(--navy-900);">Need it faster?</b><span class="small" style="display:block;">WhatsApp us directly: <a class="lnk" href="https://wa.me/254740793959">+254 740 793 959</a></span></div></div>
+        </div>
+      </div>
+      <div class="c7">
+        <div class="wz" data-rv>
+          <div class="wz-body">
+            <div class="wz-q"><div class="q">When suits you? <span style="font-size:1.1rem;color:var(--soft);font-family:var(--sans);font-weight:400;">(Mon–Fri)</span></div></div>
+            <div class="fd"><label>Day</label><div class="chips" id="bkDays"></div></div>
+            <div class="fd"><label>Time (EAT)</label><div class="chips" id="bkTimes"></div></div>
+            <div class="fd"><label>What's it about? <span style="text-transform:none;letter-spacing:0;">(optional but helps us prep)</span></label>
+              <div class="chips" id="bkTopics">
+                <label class="chip"><input type="radio" name="topic" value="Website"><span>Website</span></label>
+                <label class="chip"><input type="radio" name="topic" value="E-commerce / M-PESA"><span>E-commerce / M-PESA</span></label>
+                <label class="chip"><input type="radio" name="topic" value="Custom system"><span>Custom system</span></label>
+                <label class="chip"><input type="radio" name="topic" value="Automation"><span>Automation</span></label>
+                <label class="chip"><input type="radio" name="topic" value="Launch Kit"><span>Launch Kit</span></label>
+                <label class="chip"><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
+              </div>
+            </div>
+            <div class="secgrid" style="gap:16px;">
+              <div class="c12" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div class="fd"><label>Your name *</label><input id="bkName" type="text" placeholder="Wanjiku Kamau"></div>
+                <div class="fd"><label>Phone / WhatsApp *</label><input id="bkPhone" type="tel" placeholder="0712 345 678"></div>
+              </div>
+            </div>
+            <div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;">
+              <span></span>
+              <button class="btn btn-g" id="bkGo">Confirm booking →</button>
+            </div>
+            <div id="bkMsg" style="display:none;margin-top:18px;padding:18px;background:#F0F7EE;border:1px solid #C9DFC3;font-size:.9rem;color:#2E5D2B;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="fb"><a class="logo" href="index.html"><span class="nm" style="font-family:var(--serif);color:#fff;font-size:1.2rem;">VirrTech</span></a><p>Software company, Kenya. Websites, e-commerce, systems and automation — built to run your business, supported long after launch.</p><p class="ph">Make possibility real.</p></div>
+      <div><h5>Offer</h5><a href="services.html#kits">Launch Kits</a><a href="services.html#sites">Websites</a><a href="services.html#commerce">E-commerce</a><a href="services.html#systems">Custom systems</a><a href="services.html#care">Care plans</a></div>
+      <div><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a href="work.html">SokoShamba</a><a href="faq.html">FAQ</a></div>
+      <div><h5>Contact</h5><a href="https://wa.me/254740793959">+254 740 793 959 (WhatsApp)</a><a href="mailto:virrtech@gmail.com">virrtech@gmail.com</a><span class="small" style="display:block;margin-top:8px;">Nairobi &amp; Eldoret, Kenya<br>Mon–Fri · 8am–6pm EAT</span></div>
+    </div>
+    <div class="ftbot"><span>© 2026 VirrTech Solutions</span><span>Nairobi · Eldoret · Kenya</span></div>
+  </div>
+</footer>
+<div class="fbar"><a class="btn btn-g" href="start.html">Full brief instead</a><a class="btn btn-ol" href="https://wa.me/254740793959">WhatsApp</a></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js" defer></script>
+<script>
+(function(){
+  var CFG=window.VIRRTECH||{}; var WA=CFG.waNumber||'254740793959'; var EMAIL=CFG.email||'virrtech@gmail.com';
+  var SB=(CFG.supabaseUrl&&CFG.supabaseAnonKey)?{url:CFG.supabaseUrl,key:CFG.supabaseAnonKey}:null;
+  var state={day:'',time:'',topic:''};
+  var DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function nextWorkdays(n){
+    var out=[],d=new Date();
+    while(out.length<n){ d.setDate(d.getDate()+1); if(d.getDay()!==0&&d.getDay()!==6) out.push(new Date(d)); }
+    return out;
+  }
+  var days=nextWorkdays(5);
+  document.getElementById('bkDays').innerHTML = days.map(function(d,i){
+    var lbl=DAYS[d.getDay()]+' '+d.getDate()+' '+MONTHS[d.getMonth()];
+    return '<label class="chip"><input type="radio" name="bkday" value="'+lbl+'" data-i="'+i+'"><span>'+lbl+'</span></label>';
+  }).join('');
+  var times=['09:00–10:00','10:30–11:30','12:00–13:00','14:00–15:00','15:30–16:30'];
+  document.getElementById('bkTimes').innerHTML = times.map(function(t){
+    return '<label class="chip"><input type="radio" name="bktime" value="'+t+'"><span>'+t+'</span></label>';
+  }).join('');
+  document.querySelectorAll('input[name="bkday"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.day=r.value;});});
+  document.querySelectorAll('input[name="bktime"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.time=r.value;});});
+  document.querySelectorAll('input[name="topic"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.topic=r.value;});});
+  document.getElementById('bkGo').addEventListener('click',function(){
+    var name=document.getElementById('bkName').value.trim();
+    var phone=document.getElementById('bkPhone').value.trim();
+    if(!name||!phone){alert('Please add your name and phone number.');return;}
+    if(!state.day){alert('Pick a day.');return;}
+    if(!state.time){alert('Pick a time.');return;}
+    var msg='Hi VirrTech 👋 I\'d like to book a FREE 30-min consult.\n\n📅 Day: '+state.day+'\n⏰ Time: '+state.time+' EAT\nTopic: '+(state.topic||'General')+'\nName: '+name+'\nPhone: '+phone;
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
+      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:'Consult booking: '+(state.topic||'General'),p_message:msg,p_source:'booking'})}).catch(function(){});} }catch(e){}
+    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('service','Consult booking'); fd.append('message',msg);
+      fd.append('_subject','🔔 Booking: '+state.day+' '+state.time+' — '+name); fd.append('_template','table'); fd.append('_captcha','false');
+      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
+    var m=document.getElementById('bkMsg'); m.style.display='block';
+    m.innerHTML='<b>Request sent ✅</b> — WhatsApp should have opened with your booking. Hit send there and we\'re locked in: <b>'+state.day+' · '+state.time+' EAT</b>. We\'ll confirm on WhatsApp within minutes.';
+    document.getElementById('bkGo').disabled=true;
+  });
+})();
+</script>
+</body>
+</html>

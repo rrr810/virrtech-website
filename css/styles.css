@@ -269,3 +269,10 @@ ol.proc li::before{content:counter(pc,decimal-leading-zero);position:absolute;le
 #wzDone .wz-body > div:first-child{line-height:1}
 /* FOUC guard for [data-rv] when JS is blocked */
 .no-js [data-rv]{opacity:1}
+/* desktop floating WhatsApp button (hidden where mobile bar shows) */
+.wafab{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:var(--gold-500);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(8,23,34,.25);z-index:105;transition:transform .2s var(--ease),background .2s}
+.wafab:hover{background:var(--navy-900);transform:scale(1.06)}
+.wafab svg{width:30px;height:30px;fill:var(--navy-950)}
+.wafab:hover svg{fill:var(--gold-300)}
+@media(max-width:960px){.wafab{display:none}}
+@media (prefers-reduced-motion:reduce){.wafab{transition:none}}
