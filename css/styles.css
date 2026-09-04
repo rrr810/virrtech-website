@@ -314,3 +314,16 @@ ol.proc li::before{content:counter(pc,decimal-leading-zero);position:absolute;le
 .out .st i{width:8px;height:8px;border-radius:50%;display:inline-block}
 @media(max-width:860px){.case{grid-template-columns:1fr;gap:18px}.out{padding:6px 0}}
 @media (prefers-reduced-motion:reduce){.out .go{transition:none}}
+
+/* ===== about / founder layouts ===== */
+.bigq{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,4.4vw,3.1rem);line-height:1.14;letter-spacing:-.015em;color:var(--navy-950);margin:0}
+.bigq em{font-style:italic;color:var(--gold-700)}
+.darkq .bigq{color:#fff}
+.darkq .bigq em{color:var(--gold-300)}
+.qsrc{margin-top:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+.gd{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gd .gdc{background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 30px 34px;display:flex;flex-direction:column}
+.gd .gdc .gn{font-family:var(--serif);font-size:1.5rem;line-height:1.1;color:var(--navy-950);margin:10px 0 10px}
+.gd .gdc p{font-size:.86rem;color:var(--muted);line-height:1.65;flex:1}
+.gd .gdc .lab{display:block;width:100%}
+@media(max-width:760px){.gd{grid-template-columns:1fr}}
