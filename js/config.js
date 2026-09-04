@@ -3,8 +3,8 @@
    Never put your service_role key in any frontend file. */
 window.VIRRTECH = {
   /* From Supabase Dashboard → Project Settings → API */
-  supabaseUrl: '',      // e.g. "https://abcdefgh.supabase.co"
-  supabaseAnonKey: '',  // e.g. "eyJhbGciOi..." (anon, public)
+  supabaseUrl: 'https://bdpieyqefxyxifpjdfte.supabase.co',
+  supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkcGlleXFlZnh5eGlmcGpkZnRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1MjAxMDYsImV4cCI6MjEwNDA5NjEwNn0.AkIZqNiia4Obqa63Ts42qyiv_az8CS298FP8rsbC6Rw',
 
   /* Contact details — replace everywhere before launch */
   waNumber: '254712345678',   // WhatsApp, digits only, country code first

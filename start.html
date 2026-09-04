@@ -133,9 +133,14 @@ function sendBrief(ev){
   var num=(window.VIRRTECH&&window.VIRRTECH.waNumber)||'254712345678';
   window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
   try{if(window.VIRRTECH&&VIRRTECH.supabaseUrl&&VIRRTECH.supabaseAnonKey){
-    fetch(VIRRTECH.supabaseUrl+'/rest/v1/inquiries',{method:'POST',
-      headers:{'apikey':VIRRTECH.supabaseAnonKey,'Authorization':'Bearer '+VIRRTECH.supabaseAnonKey,'Content-Type':'application/json','Prefer':'return=minimal'},
-      body:JSON.stringify({name:name,phone:phone,service:svc,budget:budget,start_when:when,message:story,source:'start-page'})});
+    var u=VIRRTECH.supabaseUrl, k=VIRRTECH.supabaseAnonKey, h={'apikey':k,'Authorization':'Bearer '+k,'Content-Type':'application/json'};
+    // Preferred: secure RPC function (bypasses RLS restrictions safely, owner-run insert)
+    fetch(u+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:h,
+      body:JSON.stringify({p_name:name,p_phone:phone,p_service:svc,p_budget:budget,p_start_when:when,p_message:story,p_source:'start-page'})})
+      .catch(function(){
+        // Fallback: direct insert (works on projects without the function)
+        return fetch(u+'/rest/v1/inquiries',{method:'POST',headers:h,body:JSON.stringify({name:name,phone:phone,service:svc,budget:budget,start_when:when,message:story,source:'start-page'})});
+      });
   }}catch(e){}
   return false;
 }
