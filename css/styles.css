@@ -80,7 +80,8 @@ body.mo .mnav{transform:none}
 .mnav .btn{margin-top:24px;text-align:center;font-family:var(--mono);font-size:.75rem}
 
 /* ---------- HERO ---------- */
-.hero{padding:120px 0 0;position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
+.hero{padding:120px 0 0;position:relative;background-color:#050D15;background-image:linear-gradient(180deg,rgba(4,11,17,.88),rgba(4,11,17,.45) 45%,rgba(4,11,17,.80) 76%,rgba(4,11,17,.97)),url("../img/hero-bg.webp");background-size:cover;background-position:center 30%;background-repeat:no-repeat;color:#fff;overflow:hidden}
+html[data-theme="dark"] .hero{background-color:#030810;background-image:linear-gradient(180deg,rgba(3,8,16,.93),rgba(3,8,16,.55) 45%,rgba(3,8,16,.86) 76%,rgba(3,8,16,.99)),url("../img/hero-bg.webp");background-size:cover;background-position:center 30%;background-repeat:no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(56% 52% at 82% 8%,rgba(201,162,39,.13),transparent 62%),radial-gradient(46% 40% at -6% 96%,rgba(30,64,89,.65),transparent 60%),linear-gradient(rgba(217,190,126,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(217,190,126,.045) 1px,transparent 1px);background-size:auto,auto,64px 64px,64px 64px;pointer-events:none}
 .hero .wrap{position:relative}
 .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:start}
@@ -369,7 +370,7 @@ html[data-theme="dark"] .stp h4{color:var(--ink)}
 html[data-theme="dark"] .rrow{border-color:var(--line)}
 html[data-theme="dark"] .rrow b{color:var(--ink)}
 /* dark bands stay dark */
-html[data-theme="dark"] .hero,html[data-theme="dark"] .qband,html[data-theme="dark"] .mnav{background:#040B11}
+html[data-theme="dark"] .qband,html[data-theme="dark"] .mnav{background:#040B11}
 html[data-theme="dark"] .hero .t1{color:#fff}
 html[data-theme="dark"] .ft{background:#040B11}
 html[data-theme="dark"] .darkpanel{background:linear-gradient(180deg,#16334a,#040B11)}
@@ -439,11 +440,6 @@ html[data-theme="dark"] .thb .sun{display:none}
 /* ===== test-mode banner ===== */
 .tnote{display:block;margin:0 0 14px;padding:10px 14px;background:rgba(201,162,39,.13);border:1px solid rgba(201,162,39,.55);border-radius:8px;color:var(--gold-700);font-size:.82rem;line-height:1.55}
 html[data-theme="dark"] .tnote{color:var(--gold-300);background:rgba(201,162,39,.09)}
-
-/* ===== hero photo band (index) ===== */
-.hfoto{margin:50px 0 0;line-height:0;border-radius:16px;overflow:hidden;border:1px solid rgba(217,190,126,.28);box-shadow:0 34px 90px rgba(2,8,13,.35)}
-.hfoto img{display:block;width:100%;height:clamp(280px,44vh,560px);object-fit:cover}
-@media(max-width:640px){.hfoto img{height:250px}}
 
 /* ===== dark theme — semantic ink flip & final pins (must stay last-ish) ===== */
 html[data-theme="dark"]{
