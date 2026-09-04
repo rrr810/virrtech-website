@@ -80,8 +80,8 @@ body.mo .mnav{transform:none}
 .mnav .btn{margin-top:24px;text-align:center;font-family:var(--mono);font-size:.75rem}
 
 /* ---------- HERO ---------- */
-.hero{padding:120px 0 0;position:relative;background-color:#050D15;background-image:linear-gradient(180deg,rgba(4,11,17,.88),rgba(4,11,17,.45) 45%,rgba(4,11,17,.80) 76%,rgba(4,11,17,.97)),url("../img/hero-bg.webp");background-size:cover;background-position:center 30%;background-repeat:no-repeat;color:#fff;overflow:hidden}
-html[data-theme="dark"] .hero{background-color:#030810;background-image:linear-gradient(180deg,rgba(3,8,16,.93),rgba(3,8,16,.55) 45%,rgba(3,8,16,.86) 76%,rgba(3,8,16,.99)),url("../img/hero-bg.webp");background-size:cover;background-position:center 30%;background-repeat:no-repeat}
+.hero{padding:120px 0 0;position:relative;background:#0A1B2A;color:#fff;overflow:hidden}
+html[data-theme="dark"] .hero{background:#040B11}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(56% 52% at 82% 8%,rgba(201,162,39,.13),transparent 62%),radial-gradient(46% 40% at -6% 96%,rgba(30,64,89,.65),transparent 60%),linear-gradient(rgba(217,190,126,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(217,190,126,.045) 1px,transparent 1px);background-size:auto,auto,64px 64px,64px 64px;pointer-events:none}
 .hero .wrap{position:relative}
 .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:start}
@@ -457,3 +457,9 @@ html[data-theme="dark"] .burger{color:var(--ink)}
 /* receipt stamp in dark mode */
 html[data-theme="dark"] .receipt .rpaid{color:#4ADE80;background:linear-gradient(180deg,rgba(74,222,128,.10),rgba(74,222,128,.18));border-color:#34D06B;box-shadow:0 0 0 2px rgba(74,222,128,.22),0 0 0 4.5px rgba(74,222,128,.09)}
 html[data-theme="dark"] .receipt .rpaid .p2{opacity:.95}
+
+/* ===== real logo (header + footer) ===== */
+.logo img.lg{display:block;height:44px;width:auto}
+@media(max-width:480px){.logo img.lg{height:36px}}
+.ft .logo img.flg{display:block;height:64px;width:auto;margin-bottom:14px}
+html[data-theme="dark"] .hd .logo img.lg{filter:invert(1)}
