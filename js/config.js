@@ -17,7 +17,7 @@ window.VIRRTECH = {
   notifyTo: 'virrtech@gmail.com',  // ← your inbox for client details & receipts (change later if you create a @virrtechsolutions.co.ke mailbox)
   /* Paystack — public key only (safe for static sites). Fill to enable online payments. */
   paystackPublicKey: 'pk_live_ae04fba4c6a70e8260b76ddc7d829f90d8be2b35',
-  consultFeeKES: 1,
+  consultFeeKES: 500,
   currency: 'KES',
   domain: 'virrtechsolutions.co.ke'
 };
