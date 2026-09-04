@@ -14,7 +14,7 @@ window.VIRRTECH = {
      once deployed; notifyTo = the inbox that gets client details (company email).
      Leave resendRelayUrl '' to keep using the old FormSubmit path. */
   resendRelayUrl: '',
-  notifyTo: 'info@virrtechsolutions.co.ke',  // ← your company inbox (change if you created a different one at HostPinnacle)
+  notifyTo: 'virrtech@gmail.com',  // ← your inbox for client details & receipts (change later if you create a @virrtechsolutions.co.ke mailbox)
   /* Paystack — public key only (safe for static sites). Fill to enable online payments. */
   paystackPublicKey: 'pk_live_ae04fba4c6a70e8260b76ddc7d829f90d8be2b35',
   consultFeeKES: 1,

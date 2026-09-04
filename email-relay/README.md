@@ -35,7 +35,7 @@ In `../js/config.js`:
 
 ```js
 resendRelayUrl: 'https://virrtech-mail-relay.<you>.workers.dev',  // ← your worker URL
-notifyTo: 'info@virrtechsolutions.co.ke',   // ← where lead emails go (leave '' to use email field)
+notifyTo: 'virrtech@gmail.com',            // ← where lead emails go — any address works, change later to a company mailbox if you create one
 ```
 
 Commit + push. Done — paid leads and receipts now flow:
