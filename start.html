@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a project — VirrTech Solutions</title>
+<meta name="description" content="Tell VirrTech Solutions the problem. We'll tell you how to build the fix — free. Fixed written quote in 3–5 days, milestone payments, you own everything.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%230A1B2A'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="index.html"><svg width="34" height="34" viewBox="0 0 100 100"><rect width="100" height="100" rx="4" fill="#0A1B2A"/><path d="M28 28 L50 70 L72 28" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="square"/></svg><span><span class="nm">VIRRTECH</span><span class="sd">Solutions</span></span></a>
+    <nav class="nav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a class="on" href="start.html">Contact</a><a class="btn btn-p btn-sm" href="start.html">Start a project</a></nav>
+    <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('mo')">☰</button>
+  </div>
+</header>
+<div class="mnav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a class="btn btn-p" href="start.html">Start a project</a></div>
+
+<section class="sec" style="padding-bottom:56px;">
+  <div class="wrap">
+    <div class="lab">Contact</div>
+    <h1 class="t1" style="margin-top:12px;">Tell us the problem.<br>We'll price the <em>fix</em>.</h1>
+    <p class="lead" style="margin-top:14px;">The form opens WhatsApp with your brief pre-written, so nothing is lost. A human reads it — not a bot.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="secgrid">
+      <!-- form -->
+      <div class="c7" data-rv>
+        <form id="brief" onsubmit="return sendBrief(event)" style="border:1px solid var(--line);background:var(--card);padding:26px;border-radius:2px;">
+          <div class="fd"><label for="name">Your name <span class="req">*</span></label><input id="name" required placeholder="Wanjiku Kamau"></div>
+          <div class="fd"><label for="phone">WhatsApp number <span class="req">*</span></label><input id="phone" type="tel" inputmode="tel" required placeholder="0712 345 678"></div>
+          <div class="fd"><label>What do you need?</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="service" value="Launch Kit" checked><span>Launch Kit</span></label>
+              <label class="chip"><input type="radio" name="service" value="Website"><span>Website</span></label>
+              <label class="chip"><input type="radio" name="service" value="E-commerce / M-PESA"><span>E-commerce / M-PESA</span></label>
+              <label class="chip"><input type="radio" name="service" value="Custom system"><span>Custom system</span></label>
+              <label class="chip"><input type="radio" name="service" value="MVP"><span>MVP</span></label>
+              <label class="chip"><input type="radio" name="service" value="Automation / integration"><span>Automation</span></label>
+              <label class="chip"><input type="radio" name="service" value="Care plan"><span>Care plan</span></label>
+              <label class="chip"><input type="radio" name="service" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="fd"><label for="story">What are you trying to achieve? <span class="req">*</span></label><textarea id="story" rows="4" required placeholder="e.g. We sell fresh produce and take orders on WhatsApp. We want an online shop with M-PESA so customers can order and pay without calling."></textarea></div>
+          <div class="fd"><label>Budget range</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="budget" value="Under 10K"><span>&lt; 10K</span></label>
+              <label class="chip"><input type="radio" name="budget" value="20–50K"><span>20–50K</span></label>
+              <label class="chip"><input type="radio" name="budget" value="50–120K"><span>50–120K</span></label>
+              <label class="chip"><input type="radio" name="budget" value="120–400K"><span>120–400K</span></label>
+              <label class="chip"><input type="radio" name="budget" value="400K+" ><span>400K+</span></label>
+              <label class="chip"><input type="radio" name="budget" value="Not sure" checked><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="fd"><label for="when">When do you want to start?</label>
+            <select id="when"><option>This month</option><option>Within 1–3 months</option><option>Just exploring</option></select>
+          </div>
+          <button class="btn btn-p" style="width:100%;padding:14px;" type="submit">Send brief → opens WhatsApp</button>
+          <p class="small mt" style="font-size:.8rem;">Prefer email? <a class="lnk" href="mailto:hello@virrtech.co.ke">hello@virrtech.co.ke</a> — same brief, same SLA.</p>
+        </form>
+      </div>
+      <!-- side -->
+      <div class="c5">
+        <div class="panel" data-rv>
+          <div class="lab" style="margin-bottom:10px;">What happens next</div>
+          <ol class="proc">
+            <li><b>Reply within 1 business day</b> — usually sooner, on WhatsApp.</li>
+            <li><b>Free 30-minute consult.</b> We listen and advise honestly.</li>
+            <li><b>Written fixed quote in 3–5 days:</b> scope, timeline, price, inclusions, exclusions.</li>
+            <li><b>Milestones.</b> Deposit max 50%, you approve each stage.</li>
+            <li><b>Handover.</b> Training, warranty, and full ownership of code, domain, accounts.</li>
+          </ol>
+        </div>
+        <div class="panel mt" data-rv>
+          <div class="lab" style="margin-bottom:10px;">Standing terms</div>
+          <ul>
+            <li><b>Ownership</b> <span class="mono-n">yours, from day one</span></li>
+            <li><b>Payments</b> <span class="mono-n">M-PESA · bank · installments</span></li>
+            <li><b>Refunds</b> <span class="mono-n">unused portion, 14 days</span></li>
+            <li><b>Warranty</b> <span class="mono-n">30 days, free fixes</span></li>
+            <li><b>Community rate</b> <span class="mono-n">−10% orgs</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:30px;">
+  <div class="wrap">
+    <div class="sechead"><span class="n">FAQ</span><div><h2 class="t2">Asked before starting</h2></div></div>
+    <div class="c12" style="grid-column:span 12;" data-rv>
+      <details class="fq"><summary>Who owns the website when it's done?</summary><div class="b">You do — code, domain, accounts. Everything is opened in your name from day one and credentials are shared at kickoff. That is policy, not a favour.</div></details>
+      <details class="fq"><summary>What if I change my mind mid-project?</summary><div class="b">You pay for completed milestones; the unused portion is refunded within 14 days. Before kickoff, a full refund minus bank fees. If we fail to deliver, we redo the work free or refund — your choice.</div></details>
+      <details class="fq"><summary>What if I ask for extras later?</summary><div class="b">The written quote defines scope. Anything beyond it becomes a change order: quoted within 2 business days, approved in writing (WhatsApp counts), then built. Tweaks under 30 minutes during the build are free.</div></details>
+      <details class="fq"><summary>Why do custom systems cost more than websites?</summary><div class="b">A website says who you are. A system runs your operations — stock, members, payments — for years. Different depth, different value. Custom work is scoped first (KES 30,000, fully credited) so you never pay for guesswork.</div></details>
+      <details class="fq"><summary>My budget is very small. Any options?</summary><div class="b">Launch Kits at KES 6,000–10,000 (48 hours to 5 days), or a Google Business Profile setup at KES 5,000. Both get you findable this week; kit fees are credited in full if you later upgrade.</div></details>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="fb"><a class="logo" href="index.html"><span class="nm" style="font-size:1rem;">VIRRTECH</span></a><p>Software company, Nairobi. Websites, e-commerce, systems and automation for Kenyan businesses and organizations.</p><p class="ph">Make possibility real.</p></div>
+      <div><h5>Offer</h5><a href="services.html#kits">Launch Kits</a><a href="services.html#sites">Websites</a><a href="services.html#commerce">E-commerce</a><a href="services.html#systems">Custom systems</a><a href="services.html#care">Care plans</a></div>
+      <div><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a href="work.html">SokoShamba</a></div>
+      <div><h5>Contact</h5><a href="https://wa.me/254712345678">+254 712 345 678 (WhatsApp)</a><a href="mailto:hello@virrtech.co.ke">hello@virrtech.co.ke</a><span class="small" style="display:block;margin-top:6px;">Nairobi · Mon–Fri, 8–5 EAT<br>A company of VirrTech Group</span></div>
+    </div>
+    <div class="ftbot"><span>© 2026 VirrTech Solutions</span><span>Nairobi · Kenya</span></div>
+  </div>
+</footer>
+<div class="fbar"><a class="btn btn-p" href="start.html">Start a project</a><a class="btn btn-ol" href="https://wa.me/254712345678">WhatsApp</a></div>
+<script src="js/config.js" defer></script>
+<script src="js/main.js" defer></script>
+<script>
+function sendBrief(ev){
+  ev.preventDefault();
+  var name=document.getElementById('name').value.trim();
+  var phone=document.getElementById('phone').value.trim();
+  var svc=(document.querySelector('input[name="service"]:checked')||{}).value||'—';
+  var budget=(document.querySelector('input[name="budget"]:checked')||{}).value||'—';
+  var story=document.getElementById('story').value.trim();
+  var when=document.getElementById('when').value;
+  var msg='Hi VirrTech, I\'m '+name+'.\nNeed: '+svc+'\nBudget: '+budget+'\nStart: '+when+'\n\nBrief: '+story;
+  var num=(window.VIRRTECH&&window.VIRRTECH.waNumber)||'254712345678';
+  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
+  try{if(window.VIRRTECH&&VIRRTECH.supabaseUrl&&VIRRTECH.supabaseAnonKey){
+    fetch(VIRRTECH.supabaseUrl+'/rest/v1/inquiries',{method:'POST',
+      headers:{'apikey':VIRRTECH.supabaseAnonKey,'Authorization':'Bearer '+VIRRTECH.supabaseAnonKey,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({name:name,phone:phone,service:svc,budget:budget,start_when:when,message:story,source:'start-page'})});
+  }}catch(e){}
+  return false;
+}
+</script>
+</body>
+</html>
