@@ -10,5 +10,9 @@ window.VIRRTECH = {
   waNumber: '254740793959',   // WhatsApp, digits only, country code first
   phoneDisplay: '+254 740 793 959',
   email: 'virrtech@gmail.com',
+  /* Paystack — public key only (safe for static sites). Fill to enable online payments. */
+  paystackPublicKey: '',
+  consultFeeKES: 500,
+  currency: 'KES',
   domain: 'virrtech.co.ke'
 };

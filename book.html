@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a free consult — VirrTech Solutions</title>
-<meta name="description" content="Book a free 30-minute consultation with VirrTech Solutions. Pick a day and time — we confirm on WhatsApp instantly.">
+<title>Book a consult (KES 500) — VirrTech Solutions</title>
+<meta name="description" content="Book a 30-minute consult with VirrTech Solutions for a flat KES 500. Pick a day and time, pay on Paystack by card or M-PESA — we confirm on WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VirrTech Solutions">
 <meta property="og:url" content="https://virrtech.co.ke/book.html">
-<meta property="og:title" content="Book a free consult — VirrTech Solutions">
-<meta property="og:description" content="VirrTech Solutions — software company in Nairobi & Eldoret, Kenya. Websites from KES 20,000, e-commerce with M-PESA, custom systems, automations.">
+<meta property="og:title" content="Book a consult (KES 500) — VirrTech Solutions">
+<meta property="og:description" content="Flat KES 500 · 30 minutes · honest advice either way. Pay by card or M-PESA on Paystack.">
 <meta property="og:image" content="https://virrtech.co.ke/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://virrtech.co.ke/book.html">
@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%23081A25'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
+<script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
 <header class="hd">
@@ -30,9 +31,9 @@
 
 <section class="hero" style="padding-top:90px;">
   <div class="wrap">
-    <div class="eyebrow-hero"><span class="rule"></span><span class="lab" style="color:var(--gold-500);">Free 30-minute consult</span></div>
+    <div class="eyebrow-hero"><span class="rule"></span><span class="lab" style="color:var(--gold-500);">KES 500 · 30-minute consult</span></div>
     <h1 class="t1">Pick a slot.<br>We'll call you <em>on it</em>.</h1>
-    <p class="lead" style="color:#A9BAC6;">No forms marathon — just choose a day and time. We confirm on WhatsApp immediately and a human calls you at your slot. Honest advice either way, even if the answer is "you don't need us yet".</p>
+    <p class="lead" style="color:#A9BAC6;">One flat fee holds the slot and keeps our calendar honest. Pay by card or M-PESA on Paystack — then we confirm on WhatsApp within minutes and a human calls you at your slot. Honest advice either way, even if the answer is "you don't need us yet".</p>
   </div>
 </section>
 
@@ -44,7 +45,8 @@
         <div class="mt">
           <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;"><div class="mono-n" style="color:var(--gold-600);">☎</div><div><b style="color:var(--navy-900);">Call or WhatsApp?</b><span class="small" style="display:block;">We'll call your number at the slot — or WhatsApp-call if you prefer.</span></div></div>
           <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;"><div class="mono-n" style="color:var(--gold-600);">⏱</div><div><b style="color:var(--navy-900);">What happens in it</b><span class="small" style="display:block;">30 minutes: you talk, we listen, then honest direction — and a fixed quote in 3–5 days if there's a fit.</span></div></div>
-          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;border-bottom:0;"><div class="mono-n" style="color:var(--gold-600);">⚡</div><div><b style="color:var(--navy-900);">Need it faster?</b><span class="small" style="display:block;">WhatsApp us directly: <a class="lnk" href="https://wa.me/254740793959">+254 740 793 959</a></span></div></div>
+          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;"><div class="mono-n" style="color:var(--gold-600);">💳</div><div><b style="color:var(--navy-900);">The fee</b><span class="small" style="display:block;">Flat KES 500 — not an hourly meter. If we miss your slot, it's refunded in full. That promise stays.</span></div></div>
+          <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:16px 2px;border-bottom:0;"><div class="mono-n" style="color:var(--gold-600);">⚡</div><div><b style="color:var(--navy-900);">Skip the calendar?</b><span class="small" style="display:block;">WhatsApp us directly: <a class="lnk" href="https://wa.me/254740793959">+254 740 793 959</a></span></div></div>
         </div>
       </div>
       <div class="c7">
@@ -68,10 +70,11 @@
                 <div class="fd"><label>Your name *</label><input id="bkName" type="text" placeholder="Wanjiku Kamau"></div>
                 <div class="fd"><label>Phone / WhatsApp *</label><input id="bkPhone" type="tel" placeholder="0712 345 678"></div>
               </div>
+              <div class="fd" style="margin-top:16px;"><label>Email (for your receipt) *</label><input id="bkEmail" type="email" placeholder="you@example.com"></div>
             </div>
-            <div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;">
-              <span></span>
-              <button class="btn btn-g" id="bkGo">Confirm booking →</button>
+            <div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;flex-wrap:wrap;gap:10px;">
+              <span class="small" style="color:var(--soft);">Flat KES 500 · card or M-PESA</span>
+              <button class="btn btn-g" id="bkPay">Pay KES 500 &amp; confirm →</button>
             </div>
             <div id="bkMsg" style="display:none;margin-top:18px;padding:18px;background:#F0F7EE;border:1px solid #C9DFC3;font-size:.9rem;color:#2E5D2B;"></div>
           </div>
@@ -99,6 +102,7 @@
 <script>
 (function(){
   var CFG=window.VIRRTECH||{}; var WA=CFG.waNumber||'254740793959'; var EMAIL=CFG.email||'virrtech@gmail.com';
+  var PKEY=CFG.paystackPublicKey||''; var FEE=CFG.consultFeeKES||500; var CUR=CFG.currency||'KES';
   var SB=(CFG.supabaseUrl&&CFG.supabaseAnonKey)?{url:CFG.supabaseUrl,key:CFG.supabaseAnonKey}:null;
   var state={day:'',time:'',topic:''};
   var DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -119,23 +123,52 @@
   document.querySelectorAll('input[name="bkday"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.day=r.value;});});
   document.querySelectorAll('input[name="bktime"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.time=r.value;});});
   document.querySelectorAll('input[name="topic"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.topic=r.value;});});
-  document.getElementById('bkGo').addEventListener('click',function(){
+
+  function notify(name,phone,email,msg,ref){
+    try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
+      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:'Consult booking (PAID) — '+(state.topic||'General'),p_message:msg+'\nEmail: '+email+'\nRef: '+ref,p_source:'booking-paid'})}).catch(function(){});} }catch(e){}
+    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('email',email); fd.append('service','Consult booking (PAID)'); fd.append('message',msg);
+      fd.append('_replyto',email);
+      fd.append('_subject','🔔 PAID consult: '+state.day+' '+state.time+' — '+name+' (ref '+ref+')'); fd.append('_template','table'); fd.append('_captcha','false');
+      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
+  }
+  function showOk(html){ var m=document.getElementById('bkMsg'); m.style.display='block'; m.innerHTML=html; }
+  function bookWhatsApp(msg){ window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank'); }
+
+  var btn=document.getElementById('bkPay');
+  function makeRef(){ return 'VT'+String(Date.now()).slice(-8)+Math.random().toString(36).slice(2,6).toUpperCase(); }
+  function startPayment(){
     var name=document.getElementById('bkName').value.trim();
-    var phone=document.getElementById('bkPhone').value.trim();
+    var phone=document.getElementById('bkPhone').value.trim().replace(/[^0-9]/g,'');
+    var email=document.getElementById('bkEmail').value.trim();
     if(!name||!phone){alert('Please add your name and phone number.');return;}
     if(!state.day){alert('Pick a day.');return;}
     if(!state.time){alert('Pick a time.');return;}
-    var msg='Hi VirrTech 👋 I\'d like to book a FREE 30-min consult.\n\n📅 Day: '+state.day+'\n⏰ Time: '+state.time+' EAT\nTopic: '+(state.topic||'General')+'\nName: '+name+'\nPhone: '+phone;
-    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
-    try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
-      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:'Consult booking: '+(state.topic||'General'),p_message:msg,p_source:'booking'})}).catch(function(){});} }catch(e){}
-    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('service','Consult booking'); fd.append('message',msg);
-      fd.append('_subject','🔔 Booking: '+state.day+' '+state.time+' — '+name); fd.append('_template','table'); fd.append('_captcha','false');
-      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
-    var m=document.getElementById('bkMsg'); m.style.display='block';
-    m.innerHTML='<b>Request sent ✅</b> — WhatsApp should have opened with your booking. Hit send there and we\'re locked in: <b>'+state.day+' · '+state.time+' EAT</b>. We\'ll confirm on WhatsApp within minutes.';
-    document.getElementById('bkGo').disabled=true;
-  });
+    if(!email||email.indexOf('@')<1){alert('Add your email — your Paystack receipt goes there.');return;}
+    var ref=makeRef();
+    var base='Hi VirrTech 👋 I\'ve paid the KES '+FEE+' consult fee.\n\n📅 '+state.day+' · ⏰ '+state.time+' EAT\nTopic: '+(state.topic||'General')+'\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+'\nRef: '+ref;
+    var onPaid=function(){
+      notify(name,phone,email,base,ref);
+      showOk('<b>Payment received ✅</b> — KES '+FEE+' ('+ref+'). WhatsApp should have opened with your booking: hit <b>send</b> there and the slot is locked. We confirm within minutes.');
+      btn.disabled=true;
+      setTimeout(function(){bookWhatsApp(base);},400);
+    };
+    if(!PKEY){
+      // fallback: online payments not enabled yet — book via WhatsApp, fee payable by STK
+      showOk('<b>Almost there.</b> Online payments are being switched on — meanwhile, WhatsApp has opened with your booking. Send it and we\'ll push you the KES '+FEE+' M-PESA request to lock the slot.');
+      bookWhatsApp(base+'\n(Fee: KES '+FEE+' — please send M-PESA request)');
+      return;
+    }
+    if(!window.PaystackPop){ alert('Payment widget failed to load — check connection and try again, or WhatsApp us.'); return; }
+    var handler=PaystackPop.setup({
+      key:PKEY, email:email, amount:FEE*100, currency:CUR, ref:ref,
+      callback:onPaid,
+      onClose:function(){ showOk('Payment window closed — slot not locked yet. No charge was made. You can retry, or WhatsApp us directly.'); }
+    });
+    handler.openIframe();
+  }
+  btn.addEventListener('click',startPayment);
+  if(!PKEY){ btn.textContent='Reserve via WhatsApp →'; }
 })();
 </script>
 </body>
