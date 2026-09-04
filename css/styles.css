@@ -276,3 +276,11 @@ ol.proc li::before{content:counter(pc,decimal-leading-zero);position:absolute;le
 .wafab:hover svg{fill:var(--gold-300)}
 @media(max-width:960px){.wafab{display:none}}
 @media (prefers-reduced-motion:reduce){.wafab{transition:none}}
+
+/* ===== case-study browser frames ===== */
+.browser{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -34px rgba(8,23,34,.38)}
+.brow{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0B1D2C;border-bottom:1px solid var(--line)}
+.brow i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.brow .url{flex:1;text-align:center;font-family:var(--mono);font-size:.68rem;color:#9FB3BE;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:5px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
+@media (prefers-reduced-motion:no-preference){.shot{transition:opacity .5s ease}}
