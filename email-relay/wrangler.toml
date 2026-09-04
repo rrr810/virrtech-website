@@ -1,0 +1,13 @@
+name = "virrtech-mail-relay"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+# Deploy steps (run from this folder):
+#   npm i -g wrangler        (or: npx wrangler …)
+#   wrangler login
+#   wrangler deploy
+#   wrangler secret put RESEND_API_KEY
+#   wrangler secret put FROM_EMAIL
+# Then copy the printed https://virrtech-mail-relay.<subdomain>.workers.dev
+# into  ../../js/config.js  →  resendRelayUrl

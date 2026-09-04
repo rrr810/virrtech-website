@@ -8,12 +8,12 @@
 <meta name="description" content="Book a 30-minute consult with VirrTech Solutions for a flat KES 500. Pick a day and time, pay on Paystack by card or M-PESA — we confirm on WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VirrTech Solutions">
-<meta property="og:url" content="https://virrtech.co.ke/book.html">
+<meta property="og:url" content="https://virrtechsolutions.co.ke/book.html">
 <meta property="og:title" content="Book a consult (KES 500) — VirrTech Solutions">
 <meta property="og:description" content="Flat KES 500 · 30 minutes · honest advice either way. Pay by card or M-PESA on Paystack.">
-<meta property="og:image" content="https://virrtech.co.ke/og-cover.png">
+<meta property="og:image" content="https://virrtechsolutions.co.ke/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://virrtech.co.ke/book.html">
+<link rel="canonical" href="https://virrtechsolutions.co.ke/book.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
@@ -84,7 +84,7 @@
               <div class="rhead">
                 <div>
                   <div class="rword">VirrTech Solutions</div>
-                  <div class="rk" style="text-transform:none;letter-spacing:.02em;padding-top:2px">virrtech.co.ke &middot; +254 740 793 959 &middot; virrtech@gmail.com</div>
+                  <div class="rk" style="text-transform:none;letter-spacing:.02em;padding-top:2px">virrtechsolutions.co.ke &middot; +254 740 793 959 &middot; virrtech@gmail.com</div>
                 </div>
                 <div class="rpaid" id="rStamp">PAID</div>
               </div>
@@ -185,6 +185,24 @@
       +rows.map(function(r){return r[0]+': '+r[1];}).join('\n')
       +'\n\nKeep this as proof — VirrTech has the same copy on file.');
   }
+    /* email via Resend relay (email-relay/worker.js) when configured */
+  function relaySend(to,subject,html,text,replyTo){
+    var u=CFG.resendRelayUrl; if(!u) return false;
+    try{ var p={to:to,subject:subject}; if(html)p.html=html; if(text)p.text=text; if(replyTo)p.replyTo=replyTo;
+      fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(function(){}); return true; }catch(e){ return false; }
+  }
+  function receiptRowsHtml(lines){
+    return '<table style="width:100%;border-collapse:collapse;background:#FBFAF6;font-family:Verdana,Arial,sans-serif">'+lines.map(function(r){
+      return '<tr><td style="padding:9px 14px;color:#8A6F14;font-size:11px;letter-spacing:.09em;text-transform:uppercase;border-bottom:1px solid #EFEADF;white-space:nowrap">'+esc(r[0])+'</td><td style="padding:9px 14px;text-align:right;color:#101B26;font-size:13px;border-bottom:1px solid #EFEADF">'+esc(r[1])+'</td></tr>';
+    }).join('')+'</table>';
+  }
+  function receiptEnvelope(inner){
+    return '<div style="max-width:560px;margin:0 auto;font-family:Verdana,Arial,sans-serif;border:1px solid #E5DECB;border-radius:14px;overflow:hidden">'
+      +'<div style="background:#0A1B2A;color:#F5F1E7;padding:18px 24px"><div style="font-size:20px;font-weight:bold;letter-spacing:.16em">VIRRTECH <span style="color:#C9A227">SOLUTIONS</span></div>'
+      +'<div style="font-size:12px;opacity:.85;margin-top:3px">Consult booking receipt'+(TEST?' · TEST CHARGE KES 1':'')+'</div></div>'
+      +inner
+      +'<div style="background:#0A1B2A;color:#9FB3BE;font-size:11px;text-align:center;padding:12px 16px;letter-spacing:.04em">virrtechsolutions.co.ke · +254 740 793 959 · paid securely via Paystack</div></div>';
+  }
   function sendReceiptMail(d){
     try{
       var lines=[['Service',d.service]];
@@ -193,6 +211,14 @@
       if(d.note) lines.push(['Your note',d.note]);
       lines.push(['Transaction ref',d.ref],['Amount paid',FEE_AMT+(TEST?' (regular fee is KES 500)':'')],['Date issued',dstr(new Date())]);
       var txt=lines.map(function(r){ return r[0]+': '+r[1]; }).join('\n');
+      if(CFG.resendRelayUrl){
+        var html=receiptEnvelope(receiptRowsHtml(lines));
+        var own=CFG.notifyTo||EMAIL;
+        var pref=TEST?'(test KES 1) ':'';
+        relaySend(own,'₹ VirrTech receipt '+pref+d.ref+' — '+d.service+(d.topic?' — '+d.topic:'')+' ('+d.slot+')',html,txt,d.email);
+        relaySend(d.email,'Your VirrTech receipt '+pref+d.ref+' — '+(TEST?'test payment · the regular consult fee is KES 500':'consult fee paid · KES '+FEE),html,txt);
+        return;
+      }
       var fd=new FormData();
       fd.append('name',d.name);
       fd.append('phone',d.phone);
@@ -206,13 +232,14 @@
       fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){});
     }catch(e){}
   }
+
   function finishBooking(name,phone,email,msg,ref,extra){
     notify(name,phone,email,msg,ref,extra);
     buildReceipt(extra);
     setTimeout(function(){ sendReceiptMail(extra); },500);
     var ok=document.getElementById('bkMsg');
     ok.style.display='block';
-    ok.innerHTML='<b>Payment received ✅</b> — '+FEE_AMT+' · ref <b>'+esc(ref)+'</b>. Your receipt is below — we emailed the same copy to the VirrTech desk. WhatsApp should open with your booking: hit <b>send</b> there and the slot is locked. We confirm within minutes.';
+    ok.innerHTML='<b>Payment received ✅</b> — '+FEE_AMT+' · ref <b>'+esc(ref)+'</b>. Your receipt is below — a copy went to the VirrTech desk'+(CFG.resendRelayUrl?' and to your inbox':'')+'. WhatsApp should open with your booking: hit <b>send</b> there and the slot is locked. We confirm within minutes.';
     var b=document.getElementById('bkPay'); if(b) b.disabled=true;
     var box=document.getElementById('bkReceipt');
     setTimeout(function(){ if(box&&box.style.display==='block') box.scrollIntoView({behavior:'smooth',block:'nearest'}); },120);
@@ -224,15 +251,22 @@
     setTimeout(function(){ window.print(); setTimeout(function(){ document.body.classList.remove('printing'); },300); },80);
   });
 
-  function notify(name,phone,email,msg,ref,extra){
+    function notify(name,phone,email,msg,ref,extra){
     var tag=TEST?'TEST \u2014 ':'';
+    var svc=(state.topic||'General');
     try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
-      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:tag+'Consult booking (PAID) \u2014 '+(state.topic||'General'),p_message:msg+'\nEmail: '+email+'\nRef: '+ref+'\nFee: '+FEE_AMT,p_source:'booking-paid'})}).catch(function(){});} }catch(e){}
-    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('email',email); fd.append('service',tag+'Consult booking (PAID) \u2014 '+(state.topic||'General')); fd.append('message',msg);
+      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:tag+'Consult (PAID) \u2014 '+svc,p_message:msg+'\nEmail: '+email+'\nRef: '+ref+'\nFee: '+FEE_AMT,p_source:'booking-paid'})}).catch(function(){});} }catch(e){}
+    if(CFG.resendRelayUrl){
+      var own=CFG.notifyTo||EMAIL;
+      relaySend(own,tag+'\ud83d\udd14 PAID consult \u2014 '+svc+' \u2014 '+state.day+' '+state.time+' \u2014 '+name+' (ref '+ref+') \u00b7 '+FEE_AMT,null,msg+'\nEmail: '+email+'\nPhone: '+phone+'\nRef: '+ref,email);
+      return;
+    }
+    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('email',email); fd.append('service',tag+'Consult booking (PAID) \u2014 '+svc); fd.append('message',msg);
       fd.append('_replyto',email);
       fd.append('_subject',tag+'\ud83d\udd14 PAID consult: '+state.day+' '+state.time+' \u2014 '+name+' (ref '+ref+') \u00b7 '+FEE_AMT); fd.append('_template','table'); fd.append('_captcha','false');
       fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
   }
+
   function showOk(html){ var m=document.getElementById('bkMsg'); m.style.display='block'; m.innerHTML=html; }
   function bookWhatsApp(msg){ window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank'); }
 
