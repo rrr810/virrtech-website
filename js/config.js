@@ -7,8 +7,8 @@ window.VIRRTECH = {
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkcGlleXFlZnh5eGlmcGpkZnRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1MjAxMDYsImV4cCI6MjEwNDA5NjEwNn0.AkIZqNiia4Obqa63Ts42qyiv_az8CS298FP8rsbC6Rw',
 
   /* Contact details — replace everywhere before launch */
-  waNumber: '254712345678',   // WhatsApp, digits only, country code first
-  phoneDisplay: '+254 712 345 678',
-  email: 'hello@virrtech.co.ke',
+  waNumber: '254740793959',   // WhatsApp, digits only, country code first
+  phoneDisplay: '+254 740 793 959',
+  email: 'virrtech@gmail.com',
   domain: 'virrtech.co.ke'
 };

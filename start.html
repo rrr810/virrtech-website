@@ -3,105 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start a project — VirrTech Solutions</title>
-<meta name="description" content="Tell VirrTech Solutions the problem. We'll tell you how to build the fix — free. Fixed written quote in 3–5 days, milestone payments, you own everything.">
+<title>Start a project — VirrTech Solutions | Guided brief</title>
+<meta name="description" content="Answer a few smart questions. We'll reply within 1 business day with a fixed written quote. VirrTech Solutions — Nairobi & Eldoret.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%230A1B2A'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%23081A25'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
 </head>
 <body>
 <header class="hd">
   <div class="wrap hd-in">
-    <a class="logo" href="index.html"><svg width="34" height="34" viewBox="0 0 100 100"><rect width="100" height="100" rx="4" fill="#0A1B2A"/><path d="M28 28 L50 70 L72 28" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="square"/></svg><span><span class="nm">VIRRTECH</span><span class="sd">Solutions</span></span></a>
+    <a class="logo" href="index.html"><svg width="36" height="36" viewBox="0 0 100 100"><rect width="100" height="100" rx="3" fill="#081722"/><path d="M28 28 L50 70 L72 28" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="square"/></svg><span><span class="nm">VirrTech</span><span class="sd">Solutions</span></span></a>
     <nav class="nav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a class="on" href="start.html">Contact</a><a class="btn btn-p btn-sm" href="start.html">Start a project</a></nav>
     <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('mo')">☰</button>
   </div>
 </header>
 <div class="mnav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a class="btn btn-p" href="start.html">Start a project</a></div>
 
-<section class="sec" style="padding-bottom:56px;">
+<!-- hero -->
+<section class="hero" style="padding-top:96px;padding-bottom:0;">
   <div class="wrap">
-    <div class="lab">Contact</div>
-    <h1 class="t1" style="margin-top:12px;">Tell us the problem.<br>We'll price the <em>fix</em>.</h1>
-    <p class="lead" style="margin-top:14px;">The form opens WhatsApp with your brief pre-written, so nothing is lost. A human reads it — not a bot.</p>
+    <div class="eyebrow-hero"><span class="rule"></span><span class="lab" style="color:var(--gold-500);">Contact · Guided brief</span></div>
+    <h1 class="t1">Tell us the problem.<br>We'll price the <em>fix</em>.</h1>
+    <p class="lead" style="color:#A9BAC6;">Two minutes of smart questions — the brief builds itself around what you actually want. No forms-ception, no jargon, no obligation. A human reads every answer.</p>
   </div>
 </section>
 
-<section class="sec">
+<!-- wizard -->
+<section class="sec" style="border-bottom:0;">
   <div class="wrap">
     <div class="secgrid">
-      <!-- form -->
-      <div class="c7" data-rv>
-        <form id="brief" onsubmit="return sendBrief(event)" style="border:1px solid var(--line);background:var(--card);padding:26px;border-radius:2px;">
-          <div class="fd"><label for="name">Your name <span class="req">*</span></label><input id="name" required placeholder="Wanjiku Kamau"></div>
-          <div class="fd"><label for="phone">WhatsApp number <span class="req">*</span></label><input id="phone" type="tel" inputmode="tel" required placeholder="0712 345 678"></div>
-          <div class="fd"><label>What do you need?</label>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="service" value="Launch Kit" checked><span>Launch Kit</span></label>
-              <label class="chip"><input type="radio" name="service" value="Website"><span>Website</span></label>
-              <label class="chip"><input type="radio" name="service" value="E-commerce / M-PESA"><span>E-commerce / M-PESA</span></label>
-              <label class="chip"><input type="radio" name="service" value="Custom system"><span>Custom system</span></label>
-              <label class="chip"><input type="radio" name="service" value="MVP"><span>MVP</span></label>
-              <label class="chip"><input type="radio" name="service" value="Automation / integration"><span>Automation</span></label>
-              <label class="chip"><input type="radio" name="service" value="Care plan"><span>Care plan</span></label>
-              <label class="chip"><input type="radio" name="service" value="Other"><span>Other</span></label>
-            </div>
+      <!-- left rail -->
+      <div class="c4">
+        <div data-rv>
+          <div class="lab">What happens next</div>
+          <h2 class="t2" style="margin:14px 0 4px;">The five-step promise</h2>
+          <div class="mt">
+            <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:14px 2px;"><div class="mono-n" style="color:var(--gold-600);">01</div><div><b style="color:var(--navy-900);">Instant alert.</b><span class="small" style="display:block;">We're notified the second you send — WhatsApp + email.</span></div></div>
+            <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:14px 2px;"><div class="mono-n" style="color:var(--gold-600);">02</div><div><b style="color:var(--navy-900);">Human reply ≤ 1 business day.</b><span class="small" style="display:block;">Usually within hours.</span></div></div>
+            <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:14px 2px;"><div class="mono-n" style="color:var(--gold-600);">03</div><div><b style="color:var(--navy-900);">Free 30-min consult.</b><span class="small" style="display:block;">Honest advice — even if it's "you don't need us yet".</span></div></div>
+            <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:14px 2px;"><div class="mono-n" style="color:var(--gold-600);">04</div><div><b style="color:var(--navy-900);">Fixed quote in 3–5 days.</b><span class="small" style="display:block;">Scope, timeline, price, inclusions &amp; exclusions in writing.</span></div></div>
+            <div class="rrow" style="grid-template-columns:auto 1fr;gap:16px;padding:14px 2px;border-bottom:0;"><div class="mono-n" style="color:var(--gold-600);">05</div><div><b style="color:var(--navy-900);">You own everything.</b><span class="small" style="display:block;">Code, domain, accounts — from day one.</span></div></div>
           </div>
-          <div class="fd"><label for="story">What are you trying to achieve? <span class="req">*</span></label><textarea id="story" rows="4" required placeholder="e.g. We sell fresh produce and take orders on WhatsApp. We want an online shop with M-PESA so customers can order and pay without calling."></textarea></div>
-          <div class="fd"><label>Budget range</label>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="budget" value="Under 10K"><span>&lt; 10K</span></label>
-              <label class="chip"><input type="radio" name="budget" value="20–50K"><span>20–50K</span></label>
-              <label class="chip"><input type="radio" name="budget" value="50–120K"><span>50–120K</span></label>
-              <label class="chip"><input type="radio" name="budget" value="120–400K"><span>120–400K</span></label>
-              <label class="chip"><input type="radio" name="budget" value="400K+" ><span>400K+</span></label>
-              <label class="chip"><input type="radio" name="budget" value="Not sure" checked><span>Not sure</span></label>
-            </div>
+          <div class="mt2">
+            <div class="lab">Straight to the point?</div>
+            <p class="small mt">WhatsApp: <a class="lnk" href="https://wa.me/254740793959" target="_blank" rel="noopener">+254 740 793 959</a><br>Email: <a class="lnk" href="mailto:virrtech@gmail.com">virrtech@gmail.com</a><br>Nairobi · Eldoret, Kenya</p>
           </div>
-          <div class="fd"><label for="when">When do you want to start?</label>
-            <select id="when"><option>This month</option><option>Within 1–3 months</option><option>Just exploring</option></select>
-          </div>
-          <button class="btn btn-p" style="width:100%;padding:14px;" type="submit">Send brief → opens WhatsApp</button>
-          <p class="small mt" style="font-size:.8rem;">Prefer email? <a class="lnk" href="mailto:hello@virrtech.co.ke">hello@virrtech.co.ke</a> — same brief, same SLA.</p>
-        </form>
-      </div>
-      <!-- side -->
-      <div class="c5">
-        <div class="panel" data-rv>
-          <div class="lab" style="margin-bottom:10px;">What happens next</div>
-          <ol class="proc">
-            <li><b>Reply within 1 business day</b> — usually sooner, on WhatsApp.</li>
-            <li><b>Free 30-minute consult.</b> We listen and advise honestly.</li>
-            <li><b>Written fixed quote in 3–5 days:</b> scope, timeline, price, inclusions, exclusions.</li>
-            <li><b>Milestones.</b> Deposit max 50%, you approve each stage.</li>
-            <li><b>Handover.</b> Training, warranty, and full ownership of code, domain, accounts.</li>
-          </ol>
-        </div>
-        <div class="panel mt" data-rv>
-          <div class="lab" style="margin-bottom:10px;">Standing terms</div>
-          <ul>
-            <li><b>Ownership</b> <span class="mono-n">yours, from day one</span></li>
-            <li><b>Payments</b> <span class="mono-n">M-PESA · bank · installments</span></li>
-            <li><b>Refunds</b> <span class="mono-n">unused portion, 14 days</span></li>
-            <li><b>Warranty</b> <span class="mono-n">30 days, free fixes</span></li>
-            <li><b>Community rate</b> <span class="mono-n">−10% orgs</span></li>
-          </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="sec" style="padding-top:30px;">
-  <div class="wrap">
-    <div class="sechead"><span class="n">FAQ</span><div><h2 class="t2">Asked before starting</h2></div></div>
-    <div class="c12" style="grid-column:span 12;" data-rv>
-      <details class="fq"><summary>Who owns the website when it's done?</summary><div class="b">You do — code, domain, accounts. Everything is opened in your name from day one and credentials are shared at kickoff. That is policy, not a favour.</div></details>
-      <details class="fq"><summary>What if I change my mind mid-project?</summary><div class="b">You pay for completed milestones; the unused portion is refunded within 14 days. Before kickoff, a full refund minus bank fees. If we fail to deliver, we redo the work free or refund — your choice.</div></details>
-      <details class="fq"><summary>What if I ask for extras later?</summary><div class="b">The written quote defines scope. Anything beyond it becomes a change order: quoted within 2 business days, approved in writing (WhatsApp counts), then built. Tweaks under 30 minutes during the build are free.</div></details>
-      <details class="fq"><summary>Why do custom systems cost more than websites?</summary><div class="b">A website says who you are. A system runs your operations — stock, members, payments — for years. Different depth, different value. Custom work is scoped first (KES 30,000, fully credited) so you never pay for guesswork.</div></details>
-      <details class="fq"><summary>My budget is very small. Any options?</summary><div class="b">Launch Kits at KES 6,000–10,000 (48 hours to 5 days), or a Google Business Profile setup at KES 5,000. Both get you findable this week; kit fees are credited in full if you later upgrade.</div></details>
+      <!-- wizard -->
+      <div class="c8">
+        <div class="wz" data-rv>
+          <div class="wz-top">
+            <div>
+              <div class="wz-prog" id="wzProg">STEP 1 · CHOOSE</div>
+              <div class="wz-track"><i id="wzBar" style="width:0%"></i></div>
+            </div>
+            <span class="mono-n small" style="white-space:nowrap;" id="wzRest">~2 min</span>
+          </div>
+          <div class="wz-body" id="wzBody"></div>
+          <div class="wz-nav">
+            <button class="btn btn-o" id="wzBack" onclick="WZ.back()">← Back</button>
+            <button class="btn btn-g" id="wzNext" onclick="WZ.next()">Continue →</button>
+          </div>
+          <div class="wz-foot"><span>🔒 Nothing is sent until the final step — and you review everything first.</span><span>No account needed · No payment now</span></div>
+        </div>
+
+        <!-- success -->
+        <div class="wz" id="wzDone" style="display:none;">
+          <div class="wz-body" style="text-align:center;padding:60px 44px;">
+            <div style="font-family:var(--serif);font-size:3.4rem;color:var(--gold-500);line-height:1;">✓</div>
+            <h2 class="t2" style="margin-top:16px;">Brief received.</h2>
+            <p class="lead" style="margin:14px auto 0;">Your WhatsApp should have opened with the full brief pre-written — just press send there if it didn't. We've been alerted and a human will reply within one business day.</p>
+            <p class="small mt">Didn't open? <a class="lnk" id="wzResend" href="#">Re-open WhatsApp with the brief</a> · or email <a class="lnk" href="mailto:virrtech@gmail.com">virrtech@gmail.com</a></p>
+            <div class="acts" style="justify-content:center;margin-top:26px;"><a class="btn btn-o" href="index.html">← Back to home</a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -109,41 +88,213 @@
 <footer class="ft">
   <div class="wrap">
     <div class="ft-grid">
-      <div class="fb"><a class="logo" href="index.html"><span class="nm" style="font-size:1rem;">VIRRTECH</span></a><p>Software company, Nairobi. Websites, e-commerce, systems and automation for Kenyan businesses and organizations.</p><p class="ph">Make possibility real.</p></div>
+      <div class="fb"><a class="logo" href="index.html"><span class="nm" style="font-family:var(--serif);color:#fff;font-size:1.2rem;">VirrTech</span></a><p>Software company, Kenya. Websites, e-commerce, systems and automation — built to run your business, supported long after launch.</p><p class="ph">Make possibility real.</p></div>
       <div><h5>Offer</h5><a href="services.html#kits">Launch Kits</a><a href="services.html#sites">Websites</a><a href="services.html#commerce">E-commerce</a><a href="services.html#systems">Custom systems</a><a href="services.html#care">Care plans</a></div>
       <div><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a href="work.html">SokoShamba</a></div>
-      <div><h5>Contact</h5><a href="https://wa.me/254712345678">+254 712 345 678 (WhatsApp)</a><a href="mailto:hello@virrtech.co.ke">hello@virrtech.co.ke</a><span class="small" style="display:block;margin-top:6px;">Nairobi · Mon–Fri, 8–5 EAT<br>A company of VirrTech Group</span></div>
+      <div><h5>Contact</h5><a href="https://wa.me/254740793959">+254 740 793 959 (WhatsApp)</a><a href="mailto:virrtech@gmail.com">virrtech@gmail.com</a><span class="small" style="display:block;margin-top:8px;">Nairobi &amp; Eldoret, Kenya<br>Mon–Fri · 8am–6pm EAT</span></div>
     </div>
-    <div class="ftbot"><span>© 2026 VirrTech Solutions</span><span>Nairobi · Kenya</span></div>
+    <div class="ftbot"><span>© 2026 VirrTech Solutions</span><span>Nairobi · Eldoret · Kenya</span></div>
   </div>
 </footer>
-<div class="fbar"><a class="btn btn-p" href="start.html">Start a project</a><a class="btn btn-ol" href="https://wa.me/254712345678">WhatsApp</a></div>
-<script src="js/config.js" defer></script>
+<div class="fbar"><a class="btn btn-g" href="#top" onclick="return false;">Answer the brief</a><a class="btn btn-ol" href="https://wa.me/254740793959">WhatsApp</a></div>
+
+<script src="js/config.js"></script>
 <script src="js/main.js" defer></script>
 <script>
-function sendBrief(ev){
-  ev.preventDefault();
-  var name=document.getElementById('name').value.trim();
-  var phone=document.getElementById('phone').value.trim();
-  var svc=(document.querySelector('input[name="service"]:checked')||{}).value||'—';
-  var budget=(document.querySelector('input[name="budget"]:checked')||{}).value||'—';
-  var story=document.getElementById('story').value.trim();
-  var when=document.getElementById('when').value;
-  var msg='Hi VirrTech, I\'m '+name+'.\nNeed: '+svc+'\nBudget: '+budget+'\nStart: '+when+'\n\nBrief: '+story;
-  var num=(window.VIRRTECH&&window.VIRRTECH.waNumber)||'254712345678';
-  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
-  try{if(window.VIRRTECH&&VIRRTECH.supabaseUrl&&VIRRTECH.supabaseAnonKey){
-    var u=VIRRTECH.supabaseUrl, k=VIRRTECH.supabaseAnonKey, h={'apikey':k,'Authorization':'Bearer '+k,'Content-Type':'application/json'};
-    // Preferred: secure RPC function (bypasses RLS restrictions safely, owner-run insert)
-    fetch(u+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:h,
-      body:JSON.stringify({p_name:name,p_phone:phone,p_service:svc,p_budget:budget,p_start_when:when,p_message:story,p_source:'start-page'})})
-      .catch(function(){
-        // Fallback: direct insert (works on projects without the function)
-        return fetch(u+'/rest/v1/inquiries',{method:'POST',headers:h,body:JSON.stringify({name:name,phone:phone,service:svc,budget:budget,start_when:when,message:story,source:'start-page'})});
+/* ============ VIRRTECH GUIDED BRIEF — questionnaire engine ============ */
+window.WZ = (function(){
+  var CFG = window.VIRRTECH||{};
+  var WA = CFG.waNumber||'254740793959';
+  var EMAIL = CFG.email||'virrtech@gmail.com';
+  var SB = CFG.supabaseUrl && CFG.supabaseAnonKey ? {url:CFG.supabaseUrl,key:CFG.supabaseAnonKey} : null;
+
+  var CATS = [
+    {id:'launch',  label:'Launch Kit',              hint:'from KES 6,000 · online in 48h',          desc:'Digital name card or 3-page micro-site. Fixed product, prepaid, fast.'},
+    {id:'website', label:'Business Website',        hint:'from KES 20,000',                         desc:'Landing, 5 pages or a full CMS site that represents your business.'},
+    {id:'shop',    label:'E-commerce / Online Shop',hint:'from KES 120,000 · M-PESA',               desc:'Sell online, get paid via M-PESA & cards, orders reach your phone.'},
+    {id:'system',  label:'Custom System / App',     hint:'from KES 400,000',                        desc:'Dashboards, management systems, internal tools, MVPs.'},
+    {id:'auto',    label:'Automation / Integration',hint:'from KES 80,000',                         desc:'M-PESA APIs, tool integrations, workflows that kill manual work.'},
+    {id:'care',    label:'Care / Existing Website', hint:'from KES 2,500/mo',                       desc:'Maintenance, security, hosting, or fixing a site someone else built.'}
+  ];
+
+  var QS = {
+    launch: [
+      {id:'kit_kind', q:'Which Launch Kit fits?', hint:'Your kit fee is fully credited if you upgrade within 90 days.', chips:['Digital name card (1 page)','Micro-site (3 pages)','Not sure — advise me']},
+      {id:'kit_biz', q:'What is the business called — and what do you do?', ph:'e.g. Zawadi Beauty — nails & braids in Eldoret', t:'text'},
+      {id:'kit_links', q:'Paste the links & numbers you want on the page', hint:'WhatsApp, Instagram/TikTok, M-PESA till/Lipa number, location area', t:'text'},
+      {id:'kit_content', q:'Do you have text & photos ready?', chips:['Yes, ready','Need help polishing text (+KES 3,000)']},
+      {id:'kit_when', q:'How soon?', chips:['ASAP — this week','Within 2 weeks','Just exploring']}
+    ],
+    website: [
+      {id:'ws_biz', q:'Your business — name and what you do?', t:'text', ph:'e.g. Kisima Fresh — wholesale produce supplies'},
+      {id:'ws_type', q:'Which kind of website?', chips:['Landing page (1 page)','Small business (up to 5 pages)','Business + CMS (up to 10 pages)','Institutional / corporate'], multi:true},
+      {id:'ws_ind', q:'Your industry?', chips:['Retail / trade','Professional services','Agri / farm / produce','Hospitality / events','SACCO / cooperative','NGO / church / school','Health / clinic','Other']},
+      {id:'ws_inspo', q:'Any websites you admire? Paste links or describe the feel', hint:'Dark & bold? Bright & friendly? Serious & corporate?', t:'textarea', ph:'optional — links welcome'},
+      {id:'ws_features', q:'Which extras do you need (now or soon)?', chips:['Blog / news','WhatsApp ordering','Booking','Online payments','SEO boost','None yet'], multi:true},
+      {id:'ws_content', q:'Is your text & imagery ready?', chips:['Yes, ready','Need copywriting help (add-on)','Some — will send soon']}
+    ],
+    shop: [
+      {id:'ec_prod', q:'What are you selling — and roughly how many products?', t:'textarea', ph:'e.g. Handmade leather bags, ~30 designs'},
+      {id:'ec_pay', q:'How do customers pay today?', chips:['M-PESA (Lipa na M-PESA)','Cash on delivery','Cards / PayPal','Nothing online yet'], multi:true},
+      {id:'ec_orders', q:'How do you receive orders today?', chips:['WhatsApp','Phone calls','Instagram / TikTok DMs','Walk-ins','Nothing yet']},
+      {id:'ec_delivery', q:'Delivery areas & method?', t:'text', ph:'e.g. Eldoret town + Nakuru; boda boda partner'},
+      {id:'ec_stock', q:'Do you want stock tracked in the system?', chips:['Yes — track quantities','Simple — I update manually']},
+      {id:'ec_design', q:'Have you a logo / brand look?', chips:['Yes, established','Basic — needs tidying','None — advise']}
+    ],
+    system: [
+      {id:'cs_problem', q:'Describe the problem in plain words — what happens today?', hint:'Excel? notebooks? WhatsApp? which tools? what breaks?', t:'textarea', ph:'e.g. We track 4,000 member records in Excel across two branches…'},
+      {id:'cs_users', q:'Who will use it, and how many people?', t:'text', ph:'e.g. 3 admins + 12 field officers'},
+      {id:'cs_must', q:'List what it must do from day one (3–5 things)', t:'textarea'},
+      {id:'cs_later', q:'What can wait for version two?', t:'textarea', ph:'optional'},
+      {id:'cs_connect', q:'What must it connect to?', hint:'M-PESA? SMS? accounting? other software?', chips:['M-PESA payments','SMS alerts','Accounting tools','Nothing — standalone'], multi:true},
+      {id:'cs_phase', q:'How do you want to start?', chips:['MVP first — prove it small','Full system straight','Not sure — advise us']}
+    ],
+    auto: [
+      {id:'au_pain', q:'What task is eating your team\u2019s time?', t:'textarea', ph:'e.g. Copying orders from WhatsApp into a spreadsheet daily'},
+      {id:'au_tools', q:'Which tools are involved today?', t:'text', ph:'e.g. WhatsApp, Excel, QuickBooks, a delivery app'},
+      {id:'au_freq', q:'How often does the task happen?', chips:['Continuously','Daily','Weekly','Monthly']},
+      {id:'au_goal', q:'What should happen automatically at the end?', t:'textarea', ph:'e.g. Order logged, customer gets M-PESA request, rider notified'}
+    ],
+    care: [
+      {id:'ca_what', q:'What do you have?', chips:['Website built by VirrTech','Website built elsewhere','E-commerce store','App / system']},
+      {id:'ca_issue', q:'What do you need?', chips:['Updates & security care','It\u2019s slow / broken','Move hosting to us','Monthly support retainer'], multi:true},
+      {id:'ca_urgency', q:'How urgent is it?', chips:['Emergency — help!','This week','This month','Just exploring']}
+    ]
+  };
+
+  var state = {cat:null, step:0, ans:{}, review:false};
+  var compiled = {msg:'', service:''};
+
+  function el(html){var d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild;}
+  function setProg(pct,label){document.getElementById('wzBar').style.width=pct+'%';document.getElementById('wzProg').textContent=label;}
+
+  function catCard(c,i){
+    return '<div class="wz-cat" data-i="'+i+'" style="border:1px solid var(--line);padding:24px 26px;margin-bottom:14px;cursor:pointer;transition:all .18s;background:#fff;position:relative" onmouseover="this.style.borderColor=\'var(--gold-500)\';this.style.background=\'rgba(201,162,39,.04)\'" onmouseout="this.style.borderColor=\'var(--line)\';this.style.background=\'#fff\'" onclick="WZ.pick('+i+')">'
+      +'<div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline;"><b style="font-family:var(--serif);font-size:1.3rem;color:var(--navy-900);font-weight:500;">'+c.label+'</b><span class="mono-n" style="color:var(--gold-600);font-size:.82rem;white-space:nowrap;">'+c.hint+'</span></div>'
+      +'<p style="font-size:.88rem;color:var(--muted);margin-top:6px;">'+c.desc+'</p></div>';
+  }
+  function renderChoose(){
+    setProg(6,'STEP 1 · WHAT DO YOU NEED?');
+    document.getElementById('wzRest').textContent='2 min';
+    var h='<div class="wz-q"><div class="q">What are we building?</div><p class="hint" style="margin-bottom:18px;">Choose the closest match — you can change it later.</p></div>';
+    h+=CATS.map(catCard).join('');
+    document.getElementById('wzBody').innerHTML=h;
+  }
+  function qText(q,val){
+    if(q.t==='textarea') return '<textarea rows="4" placeholder="'+(q.ph||'')+'" oninput="WZ.in(\''+q.id+'\',this.value)">'+(val||'')+'</textarea>';
+    return '<input type="'+(q.t||'text')+'" placeholder="'+(q.ph||'')+'" value="'+(val||'')+'" oninput="WZ.in(\''+q.id+'\',this.value)">';
+  }
+  function qChips(q,val){
+    var sel = val? String(val).split('||'):[];
+    return '<div class="chips">'+q.chips.map(function(c){
+      var on = sel.indexOf(c)>-1?' checked':'';
+      return '<label class="chip"><input type="'+(q.multi?'checkbox':'radio')+'" name="'+q.id+'" value="'+c.replace(/"/g,'&quot;')+'"'+on+(q.multi?'':' data-single="1"')+'><span>'+c+'</span></label>';
+    }).join('')+'</div>';
+  }
+  function renderQ(){
+    var qs = QS[state.cat]; var q = qs[state.step];
+    var pct = 18 + Math.round((state.step)/(qs.length)*58);
+    setProg(pct,'STEP '+(state.step+2)+' OF '+(qs.length+1));
+    document.getElementById('wzRest').textContent='~1 min left';
+    var val = state.ans[q.id]||'';
+    var h='<div class="wz-q"><div class="q">'+q.q+'</div>'+(q.hint?'<p class="hint">'+q.hint+'</p>':'')+'<div class="mt">'+(q.chips?qChips(q,val):qText(q,val))+'</div></div>';
+    document.getElementById('wzBody').innerHTML=h;
+    if(q.chips){
+      document.querySelectorAll('input[data-single]').forEach(function(r){
+        r.addEventListener('change',function(){ if(r.checked){ var n=r.name; document.querySelectorAll('input[name="'+n+'"]').forEach(function(o){if(o!==r)o.checked=false;}); }});
       });
-  }}catch(e){}
-  return false;
-}
+    }
+    document.getElementById('wzBack').style.visibility = 'visible';
+  }
+  function renderFinal(){
+    var qs = QS[state.cat]; state.review=false; setProg(100,'FINAL STEP · YOUR DETAILS');
+    var v = function(k){return state.ans[k]||'';};
+    var h='<div class="wz-q"><div class="q">Last bit — how do we reach you?</div>';
+    h+='<div class="secgrid" style="gap:18px;">'
+      +'<div class="c12" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div class="fd"><label>Your name *</label><input id="finName" placeholder="e.g. Wanjiku Kamau" value="'+(state.ans.name||'')+'" oninput="WZ.in(\'name\',this.value)"></div><div class="fd"><label>WhatsApp number *</label><input id="finPhone" type="tel" placeholder="0712 345 678" value="'+(state.ans.phone||'')+'" oninput="WZ.in(\'phone\',this.value)"></div></div>'
+      +'<div class="c12"><div class="fd"><label>Budget ballpark</label><div class="chips">'+['Under 10K','10–50K','50–120K','120–400K','400K+','Not sure yet'].map(function(b){var on=v('budget')===b?' checked':'';return '<label class="chip"><input type="radio" name="budget" value="'+b+'"'+on+'><span>'+b+'</span></label>';}).join('')+'</div></div></div>'
+      +'<div class="c12"><div class="fd"><label>Anything else we should know?</label><textarea rows="3" placeholder="optional" oninput="WZ.in(\'extra\',this.value)"></textarea></div></div>'
+      +'</div></div>';
+    document.getElementById('wzBody').innerHTML=h;
+  }
+  function renderReview(){
+    var qs=QS[state.cat];
+    var rows='';
+    qs.forEach(function(q){ if(state.ans[q.id]) rows+='<div class="sumrow"><b>'+q.q.slice(0,44)+'</b><span>'+(state.ans[q.id].indexOf('||')>-1?state.ans[q.id].split('||').join(', '):state.ans[q.id])+'</span></div>'; });
+    if(state.ans.extra) rows+='<div class="sumrow"><b>Extra notes</b><span>'+state.ans.extra+'</span></div>';
+    state.review=true;
+    setProg(96,'REVIEW');
+    document.getElementById('wzBody').innerHTML='<div class="wz-q"><div class="q">One look before it flies.</div><p class="hint" style="margin-bottom:16px;">Tap Send — WhatsApp opens with this brief pre-written. Hit send there and we\u2019re alerted instantly.</p><div style="border-top:2px solid var(--navy-900);padding-top:8px;">'+rows+'</div></div>';
+  }
+  function buildMsg(){
+    var cat = CATS.filter(function(c){return c.id===state.cat;})[0];
+    var L=[]; L.push('*New guided brief — '+cat.label+' ('+cat.hint+')*'); L.push('');
+    QS[state.cat].forEach(function(q){ if(state.ans[q.id]){ var a=state.ans[q.id]; if(a.indexOf('||')>-1)a=a.split('||').join(', '); L.push('*'+q.q+'*'); L.push(a); L.push(''); }});
+    if(state.ans.extra){L.push('*Extra notes:*');L.push(state.ans.extra);L.push('');}
+    L.push('—'); L.push('Name: '+(state.ans.name||'—')); L.push('WhatsApp: '+(state.ans.phone||'—')); L.push('Budget: '+(state.ans.budget||'—'));
+    return {text:L.join('\n'), service:cat.label};
+  }
+  function esc(s){return s.replace(/[*_]/g,'');}
+  function submit(){
+    var b=buildMsg(); compiled.msg=b.text; compiled.service=b.service;
+    if(!(state.ans.name&&state.ans.phone)){ alert('Please add your name and WhatsApp number.'); return; }
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(b.text),'_blank');
+    // store in supabase
+    try{ if(SB){
+      var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
+      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:state.ans.name,p_phone:state.ans.phone,p_service:b.service,p_budget:state.ans.budget||null,p_message:esc(b.text),p_source:'brief-wizard'})}).catch(function(){});
+    }}catch(e){}
+    // email alert (FormSubmit → virrtech@gmail.com)
+    try{
+      var fd=new FormData(); fd.append('name',state.ans.name); fd.append('phone',state.ans.phone); fd.append('service',b.service); fd.append('budget',state.ans.budget||''); fd.append('message',esc(b.text));
+      fd.append('_subject','New '+b.service+' brief — '+state.ans.name); fd.append('_template','table'); fd.append('_captcha','false');
+      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){});
+    }catch(e){}
+    // show success
+    document.getElementById('wzDone').style.display='block';
+    document.querySelector('.wz').style.display='none';
+    var r=document.getElementById('wzResend'); r.onclick=function(e){e.preventDefault();window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(compiled.msg),'_blank');};
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  return {
+    pick:function(i){ state.cat=CATS[i].id; state.step=0; renderQ(); },
+    in:function(k,v){ state.ans[k]=v; },
+    back:function(){
+      if(state.cat===null){return;}
+      if(document.getElementById('wzBody').innerHTML.indexOf('What are we building?')>-1){return;}
+      if(state.review){ state.review=false; renderFinal(); return; }
+      if(state.step>0){ state.step--; state.review=false; renderQ(); return; }
+      state.cat=null; state.review=false; renderChoose();
+    },
+    next:function(){
+      if(state.cat===null)return;
+      if(state.review){ submit(); return; }
+      var qs=QS[state.cat];
+      if(state.step<qs.length){
+        var q=qs[state.step];
+        var v=state.ans[q.id];
+        if(q.chips){
+          var all=document.querySelectorAll('input[name="'+q.id+'"]:checked');
+          if(all.length){ v=Array.prototype.map.call(all,function(x){return x.value;}).join('||'); }
+        }
+        if(!v){ alert('Please answer to continue'); return; }
+        state.ans[q.id]=v;
+        state.step++;
+        if(state.step<qs.length) renderQ(); else renderFinal();
+      } else {
+        renderReview();
+      }
+    },
+    boot:function(){
+      if(!document.getElementById('wzBody')) return;
+      renderChoose();
+      document.getElementById('wzBack').style.visibility='hidden';
+      var fbar=document.querySelector('.fbar a.btn-g');
+      if(fbar) fbar.addEventListener('click',function(e){ e.preventDefault(); document.getElementById('wzBody').scrollIntoView({behavior:'smooth'}); });
+    }
+  };
+})();
+window.WZ.boot();
 </script>
 </body>
 </html>
