@@ -11,7 +11,7 @@ window.VIRRTECH = {
   phoneDisplay: '+254 740 793 959',
   email: 'virrtech@gmail.com',
   /* Paystack — public key only (safe for static sites). Fill to enable online payments. */
-  paystackPublicKey: '',
+  paystackPublicKey: 'pk_live_ae04fba4c6a70e8260b76ddc7d829f90d8be2b35',
   consultFeeKES: 500,
   currency: 'KES',
   domain: 'virrtech.co.ke'
