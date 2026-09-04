@@ -18,16 +18,17 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='4' fill='%23081A25'/%3E%3Cpath d='M28 28 L50 70 L72 28' fill='none' stroke='%23C9A227' stroke-width='9' stroke-linecap='square'/%3E%3C/svg%3E">
 <script src="https://js.paystack.co/v1/inline.js"></script>
+<script>(function(){try{var t=localStorage.getItem('vt-theme');if(!t)t=(matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 </head>
 <body>
 <header class="hd">
   <div class="wrap hd-in">
     <a class="logo" href="index.html"><svg width="36" height="36" viewBox="0 0 100 100"><rect width="100" height="100" rx="3" fill="#081722"/><path d="M28 28 L50 70 L72 28" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="square"/></svg><span><span class="nm">VirrTech</span><span class="sd">Solutions</span></span></a>
     <nav class="nav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a class="on" href="start.html">Contact</a><a class="btn btn-p btn-sm" href="start.html">Start a project</a></nav>
-    <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('mo')">☰</button>
+    <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('mo')">☰</button><button class="thb" type="button" aria-label="Toggle colour theme"><span class="thb-ic">☀</span></button>
   </div>
 </header>
-<div class="mnav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a class="btn btn-p" href="start.html">Start a project</a></div>
+<div class="mnav"><a href="index.html">Index</a><a href="services.html">Services &amp; prices</a><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a class="btn btn-p" href="start.html">Start a project</a><button class="thb mth" type="button"><span class="thb-lbl">☀ Dark mode</span></button></div>
 
 <section class="hero" style="padding-top:90px;padding-bottom:40px;">
   <div class="wrap">
@@ -53,11 +54,12 @@
 
         <div class="wz mt2" id="bkPanel" style="display:none;" data-rv>
           <div class="wz-body">
+<div class="tnote" id="bkTestNote" style="display:none">⚡️ <b>TEST MODE — this button charges KES 1.</b> The real consult fee is KES 500. This one-off test charge proves the payment loop — flip the fee back to 500 after testing.</div>
             <div class="wz-q" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;">
               <div class="q" id="bkSelTitle">Consult booking</div>
               <button class="btn btn-ol btn-sm" id="bkChange">← Change pick</button>
             </div>
-            <p class="small" style="margin:10px 0 4px;color:var(--muted);">A 30-minute consult with a senior builder — we map the exact scope and price before any work. Flat KES 500, card or M-PESA.</p>
+            <p class="small" id="bkFeeIntro" style="margin:10px 0 4px;color:var(--muted);">A 30-minute consult with a senior builder — we map the exact scope and price before any work. Flat KES 500, card or M-PESA.</p>
             <div class="fd" style="margin-top:14px;"><label>When suits you? <span style="text-transform:none;letter-spacing:0;">(Mon–Fri)</span></label>
               <div class="chips" id="bkDays"></div>
               <div class="chips" id="bkTimes" style="margin-top:8px;"></div>
@@ -72,10 +74,27 @@
                 <input id="bkNote" type="text" placeholder="e.g. I run a salon in Nakuru / I need stock tracking most"></div>
             </div>
             <div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;flex-wrap:wrap;gap:10px;">
-              <span class="small" style="color:var(--soft);">Flat KES 500 · refunded in full if we miss your slot</span>
+              <span class="small" id="bkFeeNote" style="color:var(--soft);">Test charge KES 1 · refunded in full if we miss your slot (regular fee KES 500)</span>
               <button class="btn btn-g" id="bkPay">Pay KES 500 &amp; confirm →</button>
             </div>
             <div id="bkMsg" style="display:none;margin-top:18px;padding:18px;background:#F0F7EE;border:1px solid #C9DFC3;font-size:.9rem;color:#2E5D2B;"></div>
+            <div class="receipt" id="bkReceipt">
+              <div class="rhead">
+                <div>
+                  <div class="rword">VirrTech Solutions</div>
+                  <div class="rk" style="text-transform:none;letter-spacing:.02em;padding-top:2px">virrtech.co.ke &middot; +254 740 793 959 &middot; virrtech@gmail.com</div>
+                </div>
+                <div class="rpaid" id="rStamp">PAID</div>
+              </div>
+              <div class="rrows" id="bkRrows"></div>
+              <div class="rtot"><span>Consult fee &mdash; paid</span><span id="rTotal">KES 1</span></div>
+              <div class="rfoot"><span>PAYMENT &middot; PAYSTACK SECURE</span><span id="rDate"></span></div>
+              <div class="ract">
+                <button type="button" class="btn btn-ol btn-sm" id="bkPrint">&#128424; Print / save PDF</button>
+                <a class="btn btn-g btn-sm" id="bkReceiptWa" target="_blank" rel="noopener">&#8599; Send receipt via WhatsApp</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -112,18 +131,19 @@
 <script src="js/config.js"></script>
 <script src="js/main.js" defer></script>
 <script>
+
 (function(){
   var CFG=window.VIRRTECH||{}; var WA=CFG.waNumber||'254740793959'; var EMAIL=CFG.email||'virrtech@gmail.com';
   var PKEY=CFG.paystackPublicKey||''; var FEE=CFG.consultFeeKES||500; var CUR=CFG.currency||'KES';
   var SB=(CFG.supabaseUrl&&CFG.supabaseAnonKey)?{url:CFG.supabaseUrl,key:CFG.supabaseAnonKey}:null;
-  var KITS={launch:['Launch Kit','KES 6,000–10,000'],website:['Business Website','from KES 20,000'],shop:['E-commerce / Online Shop','from KES 120,000'],system:['Custom System / App','from KES 400,000'],auto:['Automation / Integration','from KES 80,000'],care:['Care / Existing Website','from KES 2,500/mo']};
+  var KITS={launch:['Launch Kit','KES 6,000\u201310,000'],website:['Business Website','from KES 20,000'],shop:['E-commerce / Online Shop','from KES 120,000'],system:['Custom System / App','from KES 400,000'],auto:['Automation / Integration','from KES 80,000'],care:['Care / Existing Website','from KES 2,500/mo']};
   var state={pick:'',day:'',time:''};
   var DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   function nextWorkdays(n){ var out=[],d=new Date(); while(out.length<n){ d.setDate(d.getDate()+1); if(d.getDay()!==0&&d.getDay()!==6) out.push(new Date(d)); } return out; }
   var days=nextWorkdays(5);
   document.getElementById('bkDays').innerHTML = days.map(function(d){ var lbl=DAYS[d.getDay()]+' '+d.getDate()+' '+MONTHS[d.getMonth()];
     return '<label class="chip"><input type="radio" name="bkday" value="'+lbl+'"><span>'+lbl+'</span></label>'; }).join('');
-  var times=['09:00–10:00','10:30–11:30','12:00–13:00','14:00–15:00','15:30–16:30'];
+  var times=['09:00\u201310:00','10:30\u201311:30','12:00\u201313:00','14:00\u201315:00','15:30\u201316:30'];
   document.getElementById('bkTimes').innerHTML = times.map(function(t){ return '<label class="chip"><input type="radio" name="bktime" value="'+t+'"><span>'+t+'</span></label>'; }).join('');
   document.querySelectorAll('input[name="bkday"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.day=r.value;});});
   document.querySelectorAll('input[name="bktime"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)state.time=r.value;});});
@@ -132,26 +152,108 @@
     state.pick=k;
     var kit=KITS[k]||['Service',''];
     document.querySelectorAll('.pkc').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-k')===k); });
-    document.getElementById('bkSelTitle').textContent=kit[0]+' — book the consult';
-    document.getElementById('bkSelTitle').innerHTML=kit[0]+' · <em style="font-style:italic;color:var(--gold-700);">'+kit[1]+'</em> — book the consult';
+    var t=document.getElementById('bkSelTitle');
+    t.innerHTML=kit[0]+' \u00b7 <em style="font-style:italic;color:var(--gold-700);">'+kit[1]+'</em> \u2014 book the consult';
     var p=document.getElementById('bkPanel'); p.style.display='block';
     setTimeout(function(){ p.scrollIntoView({behavior:'smooth',block:'start'}); },60);
   }
   document.querySelectorAll('.pkc').forEach(function(c){ c.addEventListener('click',function(){ select(c.getAttribute('data-k')); }); });
-  document.getElementById('bkChange').addEventListener('click',function(){ document.getElementById('bkPanel').style.display='none'; document.getElementById('pkGrid').scrollIntoView({behavior:'smooth'}); });
+  var chBtn=document.getElementById('bkChange');
+  if(chBtn) chBtn.addEventListener('click',function(){ document.getElementById('bkPanel').style.display='none'; document.getElementById('pkGrid').scrollIntoView({behavior:'smooth'}); });
 
+  /* ---------- fee + test mode (single source: js/config.js) ---------- */
+  var TEST=(FEE<10);
+  var FEE_AMT='KES '+FEE+(TEST?' (test)':'');
+  var feeBtn=document.getElementById('bkPay');
+  if(feeBtn) feeBtn.textContent = TEST ? 'Pay KES 1 (test) & confirm →' : 'Pay KES '+FEE+' & confirm →';
+  var feeNoteEl=document.getElementById('bkFeeNote');
+  if(feeNoteEl) feeNoteEl.textContent = TEST
+    ? 'Test charge KES 1 · card or M-PESA — refunded in full if we miss your slot (regular fee KES 500)'
+    : 'Flat KES '+FEE+' · card or M-PESA';
+  var feeIntro=document.getElementById('bkFeeIntro');
+  if(feeIntro) feeIntro.textContent = TEST
+    ? 'A 30-minute consult with a senior builder — we map the exact scope and price before any work. TEST MODE: this button takes KES 1 only; the real consult fee is KES 500.'
+    : 'A 30-minute consult with a senior builder — we map the exact scope and price before any work. Flat KES '+FEE+', card or M-PESA.';
+  var tNote=document.getElementById('bkTestNote');
+  if(tNote) tNote.style.display = TEST ? 'block' : 'none';
+
+  /* ---------- receipt ---------- */
+  function esc(v){ return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function rRows(rows){
+    return rows.map(function(r){ return '<div class="rrow"><div class="rk">'+esc(r[0])+'</div><div class="rv">'+esc(r[1])+'</div></div>'; }).join('');
+  }
+  function dstr(d){ var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return d.getDate()+' '+M[d.getMonth()]+' '+d.getFullYear(); }
+  function buildReceipt(d){
+    var rows=[['Service',d.service]];
+    if(d.topic) rows.push(['Topic',d.topic]);
+    rows.push(['Slot (EAT)',d.slot]);
+    rows.push(['Name',d.name],['Phone','+'+d.phone],['Email',d.email]);
+    if(d.note) rows.push(['Your note',d.note]);
+    rows.push(['Transaction ref',d.ref]);
+    document.getElementById('bkRrows').innerHTML=rRows(rows);
+    var st=document.getElementById('rStamp'); if(st) st.textContent = TEST ? 'TEST · PAID KES 1' : 'PAID · KES '+FEE;
+    var tot=document.getElementById('rTotal'); if(tot) tot.textContent=FEE_AMT;
+    var dt=document.getElementById('rDate'); if(dt) dt.textContent=dstr(new Date())+' · EAT';
+    var box=document.getElementById('bkReceipt'); box.style.display='block';
+    var wa=document.getElementById('bkReceiptWa');
+    if(wa) wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent(
+      '₹ VirrTech Solutions — consult receipt\n'+d.ref+' \u00b7 paid '+FEE_AMT+'\n\n'
+      +rows.map(function(r){return r[0]+': '+r[1];}).join('\n')
+      +'\n\nKeep this as proof — VirrTech has the same copy on file.');
+  }
+  function sendReceiptMail(d){
+    try{
+      var lines=[['Service',d.service]];
+      if(d.topic) lines.push(['Topic',d.topic]);
+      lines.push(['Slot (EAT)',d.slot],['Name',d.name],['Phone','+'+d.phone],['Email',d.email]);
+      if(d.note) lines.push(['Your note',d.note]);
+      lines.push(['Transaction ref',d.ref],['Amount paid',FEE_AMT+(TEST?' (regular fee is KES 500)':'')],['Date issued',dstr(new Date())]);
+      var txt=lines.map(function(r){ return r[0]+': '+r[1]; }).join('\n');
+      var fd=new FormData();
+      fd.append('name',d.name);
+      fd.append('phone',d.phone);
+      fd.append('email',d.email);
+      fd.append('service','Consult — '+(TEST?'TEST KES 1 — ':'')+d.service);
+      fd.append('message',txt);
+      fd.append('_replyto',d.email);
+      fd.append('_subject','₹ VirrTech receipt '+(TEST?'(test KES 1) ':'')+d.ref+' — '+d.service+(d.topic?' — '+d.topic:'')+' ('+d.slot+')');
+      fd.append('_template','table');
+      fd.append('_captcha','false');
+      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){});
+    }catch(e){}
+  }
+  function finishBooking(name,phone,email,msg,ref,extra){
+    notify(name,phone,email,msg,ref,extra);
+    buildReceipt(extra);
+    setTimeout(function(){ sendReceiptMail(extra); },500);
+    var ok=document.getElementById('bkMsg');
+    ok.style.display='block';
+    ok.innerHTML='<b>Payment received ✅</b> — '+FEE_AMT+' · ref <b>'+esc(ref)+'</b>. Your receipt is below — we emailed the same copy to the VirrTech desk. WhatsApp should open with your booking: hit <b>send</b> there and the slot is locked. We confirm within minutes.';
+    var b=document.getElementById('bkPay'); if(b) b.disabled=true;
+    var box=document.getElementById('bkReceipt');
+    setTimeout(function(){ if(box&&box.style.display==='block') box.scrollIntoView({behavior:'smooth',block:'nearest'}); },120);
+    setTimeout(function(){ bookWhatsApp(msg); },500);
+  }
+  var prBtn=document.getElementById('bkPrint');
+  if(prBtn) prBtn.addEventListener('click',function(){
+    document.body.classList.add('printing');
+    setTimeout(function(){ window.print(); setTimeout(function(){ document.body.classList.remove('printing'); },300); },80);
+  });
+
+  function notify(name,phone,email,msg,ref,extra){
+    var kit=KITS[state.pick]||['Service',''];
+    var tag=TEST?'TEST \u2014 ':'';
+    try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
+      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:tag+'Consult (PAID) \u2014 '+kit[0],p_message:msg+'\nEmail: '+email+'\nRef: '+ref+'\nFee: '+FEE_AMT,p_source:'start-paid'})}).catch(function(){});} }catch(e){}
+    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('email',email);
+      fd.append('service',tag+'Consult (PAID) \u2014 '+kit[0]); fd.append('message',msg);
+      fd.append('_replyto',email);
+      fd.append('_subject',tag+'\ud83d\udd14 PAID consult \u2014 '+kit[0]+' \u2014 '+state.day+' '+state.time+' ('+ref+') \u00b7 '+FEE_AMT); fd.append('_template','table'); fd.append('_captcha','false');
+      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
+  }
   function showOk(html){ var m=document.getElementById('bkMsg'); m.style.display='block'; m.innerHTML=html; }
   function bookWhatsApp(msg){ window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank'); }
   function makeRef(){ return 'VT'+String(Date.now()).slice(-8)+Math.random().toString(36).slice(2,6).toUpperCase(); }
-  function notify(name,phone,email,msg,ref){
-    try{ if(SB){var hdr={'apikey':SB.key,'Authorization':'Bearer '+SB.key,'Content-Type':'application/json'};
-      fetch(SB.url+'/rest/v1/rpc/submit_inquiry',{method:'POST',headers:hdr,body:JSON.stringify({p_name:name,p_phone:phone,p_service:'Consult (PAID) — '+KITS[state.pick][0],p_message:msg+'\nEmail: '+email+'\nRef: '+ref,p_source:'start-paid'})}).catch(function(){});} }catch(e){}
-    try{ var fd=new FormData(); fd.append('name',name); fd.append('phone',phone); fd.append('email',email);
-      fd.append('service','Consult (PAID) — '+KITS[state.pick][0]); fd.append('message',msg);
-      fd.append('_replyto',email);
-      fd.append('_subject','🔔 PAID consult — '+KITS[state.pick][0]+' — '+state.day+' '+state.time+' ('+ref+')'); fd.append('_template','table'); fd.append('_captcha','false');
-      fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd}).catch(function(){}); }catch(e){}
-  }
   function pay(){
     var name=document.getElementById('bkName').value.trim();
     var phone=document.getElementById('bkPhone').value.trim().replace(/[^0-9]/g,'');
@@ -161,27 +263,24 @@
     if(!name||!phone){alert('Please add your name and phone number.');return;}
     if(!state.day){alert('Pick a day.');return;}
     if(!state.time){alert('Pick a time.');return;}
-    if(!email||email.indexOf('@')<1){alert('Add your email — your receipt goes there.');return;}
+    if(!email||email.indexOf('@')<1){alert('Add your email \u2014 your receipt goes there.');return;}
     var ref=makeRef();
-    var kit=KITS[state.pick][0];
-    var msg='Hi VirrTech 👋 Consult fee paid (KES '+FEE+').\n\n🔧 Need: '+kit+'\n📅 '+state.day+' · ⏰ '+state.time+' EAT\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+(note?'\nNote: '+note:'')+'\nRef: '+ref;
-    var onPaid=function(){
-      notify(name,phone,email,msg,ref);
-      showOk('<b>Payment received ✅</b> — KES '+FEE+' · ref <b>'+ref+'</b>. WhatsApp should open with your booking — hit <b>send</b> and the slot is locked. We confirm within minutes.');
-      document.getElementById('bkPay').disabled=true;
-      setTimeout(function(){bookWhatsApp(msg);},400);
-    };
-    if(!PKEY){ showOk('Online payments are being switched on — WhatsApp has opened with your booking. Send it and we\'ll push you the KES '+FEE+' M-PESA request to lock the slot.'); bookWhatsApp(msg+'\n(Fee KES '+FEE+' via M-PESA)'); return; }
-    if(!window.PaystackPop){ alert('Payment widget failed to load — retry or WhatsApp us.'); return; }
+    var kit=KITS[state.pick]||['Service',''];
+    var extra={service:kit[0],topic:'Quote: '+kit[1]+' \u2014 fixed in writing after the consult',slot:state.day+' \u00b7 '+state.time,name:name,phone:phone,email:email,ref:ref};
+    if(note) extra.note=note;
+    var msg='Hi VirrTech \ud83d\udc4b Consult fee paid (KES '+FEE+(TEST?' TEST CHARGE':'')+').\n\n\ud83d\udd27 Need: '+kit[0]+'\n\ud83d\udcc5 '+state.day+' \u00b7 \u23f0 '+state.time+' EAT\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+(note?'\nNote: '+note:'')+'\nRef: '+ref;
+    var onPaid=function(){ finishBooking(name,phone,email,msg,ref,extra); };
+    if(!PKEY){ showOk('Online payments are being switched on \u2014 WhatsApp has opened with your booking. Send it and we\'ll push you the KES '+FEE+' M-PESA request to lock the slot.'); bookWhatsApp(msg+'\n(Fee KES '+FEE+' via M-PESA)'); return; }
+    if(!window.PaystackPop){ alert('Payment widget failed to load \u2014 retry or WhatsApp us.'); return; }
     var handler=PaystackPop.setup({key:PKEY,email:email,amount:FEE*100,currency:CUR,ref:ref,callback:onPaid,
-      onClose:function(){ showOk('Payment window closed — no charge made, slot not locked. Retry or WhatsApp us directly.'); }});
+      onClose:function(){ showOk('Payment window closed \u2014 no charge made, slot not locked. Retry or WhatsApp us directly.'); }});
     handler.openIframe();
   }
-  document.getElementById('bkPay').addEventListener('click',pay);
-  // deep-link: start.html?pick=website
-  try{ var q=new URLSearchParams(location.search).get('pick');
-    if(q&&KITS[q]){ select(q); setTimeout(function(){ document.getElementById('bkName').focus(); },800); } }catch(e){}
+  var pBtn=document.getElementById('bkPay');
+  pBtn.addEventListener('click',pay);
+  if(!PKEY){ pBtn.textContent='Reserve via WhatsApp \u2192'; }
 })();
-</script></script>
+
+</script>
 </body>
 </html>
