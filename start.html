@@ -206,7 +206,7 @@
   function relaySend(to,subject,html,text,replyTo){
     var u=CFG.resendRelayUrl; if(!u) return false;
     try{ var p={to:to,subject:subject}; if(html)p.html=html; if(text)p.text=text; if(replyTo)p.replyTo=replyTo;
-      fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(function(){}); return true; }catch(e){ return false; }
+      fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}).catch(function(e){ try{console.warn('Relay email failed:',e&&e.message||e);}catch(_){} }); return true; }catch(e){ return false; }
   }
   function receiptRowsHtml(lines){
     return '<table style="width:100%;border-collapse:collapse;background:#FBFAF6;font-family:Verdana,Arial,sans-serif">'+lines.map(function(r){

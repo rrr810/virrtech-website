@@ -13,27 +13,59 @@
  *
  * From-address is fixed at deploy time via FROM_EMAIL secret.
  */
+
+function allowed(origin) {
+  return (
+    origin === '' ||
+    origin === 'null' ||
+    origin.endsWith('virrtechsolutions.co.ke') ||
+    origin.endsWith('rrr810.github.io')
+  );
+}
+
+function corsHeaders(origin) {
+  return {
+    'Access-Control-Allow-Origin': origin || '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Max-Age': '86400',
+  };
+}
+
+function json(obj, status, origin) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: Object.assign(
+      { 'Content-Type': 'application/json' },
+      corsHeaders(origin)
+    ),
+  });
+}
+
 export default {
   async fetch(request, env) {
-    // Only allow POST from the site
-    if (request.method !== 'POST') return new Response('method not allowed', { status: 405 });
-
     const origin = request.headers.get('origin') || '';
-    const allow =
-      origin.endsWith('virrtechsolutions.co.ke') ||
-      origin.endsWith('rrr810.github.io') ||
-      origin === 'null';
+
+    // Browser preflight — MUST answer OPTIONS or browsers block the POST
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders(allowed(origin) ? origin : '') });
+    }
+
+    if (!allowed(origin)) {
+      return json({ ok: false, error: 'origin not allowed' }, 403, origin);
+    }
+
+    if (request.method !== 'POST') return json({ ok: false, error: 'method not allowed' }, 405, origin);
 
     let body;
     try { body = await request.json(); } catch (e) { return json({ ok: false, error: 'bad json' }, 400, origin); }
 
-    // Minimal sanity checks
     if (!body.to || typeof body.to !== 'string' || body.to.length > 320 || !body.to.includes('@')) {
-      return json({ ok: false, error: 'missing or invalid to' }, 400, origin, allow);
+      return json({ ok: false, error: 'missing or invalid to' }, 400, origin);
     }
-    if (!body.subject || body.subject.length > 200) return json({ ok: false, error: 'missing subject' }, 400, origin, allow);
-    if (!body.html && !body.text) return json({ ok: false, error: 'nothing to send' }, 400, origin, allow);
-    if (!env.RESEND_API_KEY) return json({ ok: false, error: 'relay not configured' }, 500, origin, allow);
+    if (!body.subject || body.subject.length > 200) return json({ ok: false, error: 'missing subject' }, 400, origin);
+    if (!body.html && !body.text) return json({ ok: false, error: 'nothing to send' }, 400, origin);
+    if (!env.RESEND_API_KEY) return json({ ok: false, error: 'relay not configured' }, 500, origin);
 
     const from = env.FROM_EMAIL || 'VirrTech Solutions <no-reply@virrtechsolutions.co.ke>';
 
@@ -56,22 +88,10 @@ export default {
         body: JSON.stringify(payload),
       });
       const data = await r.json();
-      if (!r.ok) return json({ ok: false, error: 'resend: ' + (data.message || r.status) }, 502, origin, allow);
-      return json({ ok: true, id: data.id }, 200, origin, allow);
+      if (!r.ok) return json({ ok: false, error: 'resend: ' + (data.message || r.status) }, 502, origin);
+      return json({ ok: true, id: data.id }, 200, origin);
     } catch (e) {
-      return json({ ok: false, error: 'relay error' }, 502, origin, allow);
+      return json({ ok: false, error: 'relay error' }, 502, origin);
     }
   },
 };
-
-function json(obj, status, origin, allow) {
-  return new Response(JSON.stringify(obj), {
-    status,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': allow === false ? 'none' : (origin || '*'),
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    },
-  });
-}
