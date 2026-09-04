@@ -13,7 +13,7 @@ window.VIRRTECH = {
   /* Resend relay (email-relay/ folder) — set resendRelayUrl to the worker URL
      once deployed; notifyTo = the inbox that gets client details (company email).
      Leave resendRelayUrl '' to keep using the old FormSubmit path. */
-  resendRelayUrl: '',
+  resendRelayUrl: 'https://virrtech-mail-relay.virrtech.workers.dev',
   notifyTo: 'virrtech@gmail.com',  // ← your inbox for client details & receipts (change later if you create a @virrtechsolutions.co.ke mailbox)
   /* Paystack — public key only (safe for static sites). Fill to enable online payments. */
   paystackPublicKey: 'pk_live_ae04fba4c6a70e8260b76ddc7d829f90d8be2b35',
