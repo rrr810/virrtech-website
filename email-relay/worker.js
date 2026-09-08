@@ -77,6 +77,20 @@ export default {
     };
     if (body.html) payload.html = body.html;
     if (body.text) payload.text = body.text;
+    // optional attachments: [{ filename, content(base64), type }]
+    if (Array.isArray(body.attachments) && body.attachments.length) {
+      let total = 0;
+      const atts = [];
+      for (const a of body.attachments.slice(0, 6)) {
+        if (!a || !a.filename || typeof a.content !== 'string') continue;
+        const fn = String(a.filename).slice(0, 255);
+        const clean = a.content.replace(/\s+/g, '');
+        total += clean.length;
+        if (clean.length < 100 || total > 6 * 1024 * 1024) continue; // min ~50B pdf, cap 6MB total
+        atts.push({ filename: fn, content: clean });
+      }
+      if (atts.length) payload.attachments = atts;
+    }
 
     try {
       const r = await fetch('https://api.resend.com/emails', {
