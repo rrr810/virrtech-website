@@ -463,3 +463,11 @@ html[data-theme="dark"] .receipt .rpaid .p2{opacity:.95}
 @media(max-width:480px){.logo img.lg{height:36px}}
 .ft .logo img.flg{display:block;height:64px;width:auto;margin-bottom:14px}
 html[data-theme="dark"] .hd .logo img.lg{filter:invert(1)}
+
+/* ===== terms page + agreement checkbox ===== */
+#tm p{font-size:1.02rem;line-height:1.8}
+#tm h2{margin-top:34px}
+.agree{display:flex;gap:10px;align-items:flex-start;margin:16px 0 6px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.agree input[type="checkbox"]{margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--gold-500);cursor:pointer}
+.agree .small{color:var(--muted);line-height:1.55}
+.agree.err{border-color:#A3442E}

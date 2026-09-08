@@ -75,7 +75,8 @@
               </div>
               <div class="fd" style="margin-top:16px;"><label>Email (for your receipt) *</label><input id="bkEmail" type="email" placeholder="you@example.com"></div>
             </div>
-            <div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;flex-wrap:wrap;gap:10px;">
+                        <div class="agree"><input type="checkbox" id="bkAgree"><span class="small">I&rsquo;ve read and agree to the <a class="lnk" href="terms.html">client agreement</a> — consult fee terms, the 50/50 project payment policy, ownership &amp; refunds.</span></div>
+<div class="wz-nav" style="margin-top:8px;border-top:0;padding-top:0;flex-wrap:wrap;gap:10px;">
               <span class="small" id="bkFeeNote" style="color:var(--soft);">Flat KES 500 · card or M-PESA — refunded in full if we miss your slot</span>
               <button class="btn btn-g" id="bkPay">Pay KES 500 &amp; confirm →</button>
             </div>
@@ -109,7 +110,7 @@
     <div class="ft-grid">
       <div class="fb"><a class="logo" href="index.html"><img class="flg" src="img/logo-white.png" alt="VirrTech Solutions" width="73" height="64"></a><p>Software company, Kenya. Websites, e-commerce, systems and automation — built to run your business, supported long after launch.</p><p class="ph">Make possibility real.</p></div>
       <div><h5>Offer</h5><a href="services.html#kits">Launch Kits</a><a href="services.html#sites">Websites</a><a href="services.html#commerce">E-commerce</a><a href="services.html#systems">Custom systems</a><a href="services.html#care">Care plans</a></div>
-      <div><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a href="work.html">SokoShamba</a><a href="faq.html">FAQ</a></div>
+      <div><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="start.html">Contact</a><a href="work.html">SokoShamba</a><a href="faq.html">FAQ</a><a href="terms.html">Client terms</a></div>
       <div><h5>Contact</h5><a href="https://wa.me/254740793959">+254 740 793 959 (WhatsApp)</a><a href="mailto:virrtech@gmail.com">virrtech@gmail.com</a><span class="small" style="display:block;margin-top:8px;">Nairobi &amp; Eldoret, Kenya<br>Mon–Fri · 8am–6pm EAT</span></div>
     </div>
     <div class="ftbot"><span>© 2026 VirrTech Solutions</span><span>Nairobi · Eldoret · Kenya</span></div>
@@ -280,6 +281,8 @@
     if(!state.day){alert('Pick a day.');return;}
     if(!state.time){alert('Pick a time.');return;}
     if(!email||email.indexOf('@')<1){alert('Add your email \u2014 your receipt goes there.');return;}
+    var ag=document.getElementById('bkAgree');
+    if(ag&&!ag.checked){ ag.closest('.agree').classList.add('err'); alert('Please read and tick the client agreement first \u2014 it\'s a 2-minute read and it protects both of us.'); return; }
     var ref=makeRef();
     var extra={service:'Consult \u00b7 30 minutes',topic:state.topic||'General',slot:state.day+' \u00b7 '+state.time,name:name,phone:phone,email:email,ref:ref};
     var msg='Hi VirrTech \ud83d\udc4b I\'ve paid the KES '+FEE+' consult fee'+(TEST?' (TEST CHARGE)':'')+'.\n\n\ud83d\udcc5 '+state.day+' \u00b7 \u23f0 '+state.time+' EAT\nTopic: '+(state.topic||'General')+'\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+'\nRef: '+ref;
