@@ -11,7 +11,8 @@
 <meta property="og:site_name" content="VirrTech Solutions">
 <meta property="og:url" content="https://virrtechsolutions.co.ke/sign.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/sign-fonts.css">
 <link rel="stylesheet" href="css/styles.css">
 <script>(function(){try{var t=localStorage.getItem('vt-theme');if(!t)t=(matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 </head>
@@ -99,24 +100,24 @@
 
           <h4 style="margin:24px 0 8px;font-family:var(--serif);font-size:1.2rem;color:var(--ink);">Your signature</h4>
           <div class="chips" style="margin-bottom:12px;">
-            <label class="chip"><input type="radio" name="sgt" value="draw" checked><span>✍ Draw it</span></label>
-            <label class="chip"><input type="radio" name="sgt" value="type"><span>✒ Type it (fancy font)</span></label>
+            <label class="chip"><input type="radio" name="sgt" value="type" checked><span>✒ Type it (fancy font)</span></label>
+            <label class="chip"><input type="radio" name="sgt" value="draw"><span>✍ Draw it</span></label>
           </div>
 
-          <div id="sgDrawBox">
+          <div id="sgDrawBox" style="display:none;">
             <canvas id="sgPad" width="760" height="220" style="width:100%;max-width:760px;height:auto;touch-action:none;background:#fff;border:1.5px dashed var(--line);border-radius:8px;cursor:crosshair;"></canvas>
             <p class="small" style="margin:6px 0 0;color:var(--soft);">Sign inside the box with your finger or mouse — then hit “Use signature”.</p>
           </div>
 
-          <div id="sgTypeBox" style="display:none;">
-            <div class="fd"><label>Type your name — it becomes your signature</label>
-              <input id="sgTypeName" type="text" placeholder="Wanjiku Kamau" style="font-family:'Allura',cursive;font-size:2.1rem;padding:14px 16px;height:auto;letter-spacing:.02em;"></div>
+          <div id="sgTypeBox">
+            <div class="fd" style="margin-bottom:8px;"><label>Type your name — it becomes your signature</label>
+              <input id="sgTypeName" type="text" placeholder="Wanjiku Kamau" style="font-family:'Allura',cursive;font-size:2.1rem;padding:14px 16px;height:auto;letter-spacing:.02em;" autocomplete="off"></div>
             <div class="chips" style="margin-top:10px;">
               <label class="chip"><input type="radio" name="sgsty" value="Allura" checked><span style="font-family:'Allura',cursive;font-size:1.15rem;">Allura</span></label>
               <label class="chip"><input type="radio" name="sgsty" value="Great Vibes"><span style="font-family:'Great Vibes',cursive;font-size:1.15rem;">Great Vibes</span></label>
               <label class="chip"><input type="radio" name="sgsty" value="Dancing Script"><span style="font-family:'Dancing Script',cursive;font-size:1.05rem;">Dancing</span></label>
             </div>
-            <p class="small" style="margin:6px 0 0;color:var(--soft);">A cursive style carries the same legal weight as a drawn one when you tick the confirmation below.</p>
+            <p class="small" style="margin:8px 0 0;color:var(--soft);">The preview appears by itself as you type — no pen needed. A typed cursive signature carries the same legal weight as a drawn one.</p>
           </div>
 
           <div style="margin-top:14px;">
@@ -134,6 +135,7 @@
             <button class="btn btn-g" id="sgSign" type="button">Sign &amp; send agreement →</button>
           </div>
           <div id="sgMsg" style="display:none;margin-top:18px;padding:18px;background:#F0F7EE;border:1px solid #C9DFC3;font-size:.9rem;color:#2E5D2B;"></div>
+          <p class="small" style="color:var(--soft);margin:12px 0 0;">For both parties&rsquo; protection: the signed PDF stamps the exact signing time (EAT) and the network IP it was signed from, with a unique reference. Copies go to your email and VirrTech&rsquo;s at the same second — so a signature can&rsquo;t be denied later, and one can&rsquo;t be forged either.</p>
 
         </div>
       </div>
@@ -160,6 +162,17 @@
 (function(){
   var CFG=window.VIRRTECH||{}; var EMAIL=CFG.email||'virrtech@gmail.com';
   var RELAY=CFG.resendRelayUrl||''; var OWNER=CFG.notifyTo||EMAIL;
+  // record the signer's public IP into the PDF (dispute-proofing) — best-effort, 4s timeout
+  var CLIENT_IP='';
+  (function(){ try{
+    var ac=new AbortController(), to=setTimeout(function(){ ac.abort(); },4000);
+    fetch('https://api.ipify.org?format=json',{signal:ac.signal})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if(j&&j.ip&&typeof j.ip==='string') CLIENT_IP=j.ip; })
+      .catch(function(){})
+      .finally(function(){ clearTimeout(to); });
+  }catch(e){} })();
+  function clientIpText(){ return CLIENT_IP || 'this device (IP lookup unavailable)'; }
   var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   function fmtDate(d){ return d.getDate()+' '+MONTHS[d.getMonth()]+' '+d.getFullYear(); }
   function fmtStamp(d){ var s=d.toLocaleString('en-KE',{timeZone:'Africa/Nairobi',hour12:true,month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'}); return s; }
@@ -196,13 +209,37 @@
     setOtherBox(this.value===OTHER_LABEL);
   });
 
-  // ---- signature source: draw vs type ----
-  var mode='draw', signatureData=null, sigW=0, sigH=0;
+  // ---- signature source: draw vs type (type is default — no pen needed) ----
+  var mode='type', signatureData=null, sigW=0, sigH=0;
   var pad=document.getElementById('sgPad'), ctx=pad.getContext('2d');
   var drawing=false, hasInk=false;
+  var FONT_NAMES=['Allura','Great Vibes','Dancing Script'];
   function pos(e){
     var r=pad.getBoundingClientRect();
     return { x:(e.clientX-r.left)*(pad.width/r.width), y:(e.clientY-r.top)*(pad.height/r.height) };
+  }
+  function ensureFonts(){
+    try{
+      return Promise.all(FONT_NAMES.map(function(f){ return document.fonts.load('90px "'+f+'"').catch(function(){ return []; }); }));
+    }catch(e){ return Promise.resolve(); }
+  }
+  function showCaptured(){
+    if(!signatureData){ document.getElementById('sgPrev').style.display='none'; return; }
+    document.getElementById('sgPrevImg').src=signatureData;
+    document.getElementById('sgPrev').style.display='block';
+    document.getElementById('sgClear').style.display='inline-flex';
+  }
+  function captureTyped(){
+    if(mode!=='type') return;
+    ensureFonts().then(function(){
+      if(mode!=='type') return;
+      var name=document.getElementById('sgTypeName').value.trim();
+      if(!name){ signatureData=null; sigW=0; sigH=0; document.getElementById('sgPrev').style.display='none'; document.getElementById('sgClear').style.display='none'; return; }
+      var r=renderTyped();
+      if(!r) return;
+      signatureData=r.data; sigW=r.w; sigH=r.h;
+      showCaptured();
+    });
   }
   pad.addEventListener('pointerdown',function(e){ drawing=true; if(!hasInk){ hasInk=true; if(mode==='draw') document.getElementById('sgUse').disabled=false; } ctx.lineWidth=3; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle='#0A1B2A'; ctx.beginPath(); var p=pos(e); ctx.moveTo(p.x,p.y); pad.setPointerCapture(e.pointerId); });
   pad.addEventListener('pointermove',function(e){ if(!drawing)return; var p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); });
@@ -214,6 +251,7 @@
     document.getElementById('sgUse').disabled = true;
     document.getElementById('sgClear').style.display='none';
     signatureData=null; document.getElementById('sgPrev').style.display='none';
+    if(mode==='type' && document.getElementById('sgTypeName').value.trim()) captureTyped();
   }); });
 
   // typed signature -> hidden canvas (script font), auto-cropped to the ink
@@ -230,11 +268,11 @@
       if(i>=tryFonts.length) return false;
       var fam=tryFonts[i];
       c.clearRect(0,0,cv.width,cv.height);
-      c.font='italic 130px '+fam+', cursive';
+      c.font='130px '+fam+', cursive';
       c.fillStyle='#0A1B2A';
       var m=c.measureText(name);
       if(m.width<40 && i<tryFonts.length-1) return paint(i+1);
-      if(m.width>cv.width-120){ c.font='italic 90px '+fam+', cursive'; m=c.measureText(name); }
+      if(m.width>cv.width-120){ c.font='90px '+fam+', cursive'; m=c.measureText(name); }
       c.fillText(name,(cv.width-m.width)/2,190);
       return true;
     }
@@ -263,12 +301,16 @@
     // JPEG (jsPDF embeds it compressed — keeps the emailed PDF small)
     return {data:cv2.toDataURL('image/jpeg',0.92), w:w2, h:h2};
   }
+  var typeTimer=null;
   document.getElementById('sgTypeName').addEventListener('input',function(){
     document.getElementById('sgUse').disabled = !this.value.trim();
+    clearTimeout(typeTimer);
+    typeTimer=setTimeout(captureTyped,300); // live preview as they type
   });
+  document.querySelectorAll('input[name="sgsty"]').forEach(function(r){ r.addEventListener('change',function(){ clearTimeout(typeTimer); captureTyped(); }); });
 
   document.getElementById('sgUse').addEventListener('click',function(){
-    if(mode==='type'){ var r=renderTyped(); if(r){ signatureData=r.data; sigW=r.w; sigH=r.h; } }
+    if(mode==='type'){ clearTimeout(typeTimer); captureTyped(); }
     else {
       if(!hasInk){ alert('Draw your signature in the box first.'); return; }
       var cp=document.createElement('canvas');
@@ -277,12 +319,10 @@
       gc.fillStyle='#FFFFFF'; gc.fillRect(0,0,cp.width,cp.height);
       gc.drawImage(pad,0,0);
       signatureData=cp.toDataURL('image/jpeg',0.92); sigW=pad.width; sigH=pad.height;
+      document.getElementById('sgPrevImg').src=signatureData;
+      document.getElementById('sgPrev').style.display='block';
+      document.getElementById('sgClear').style.display='inline-flex';
     }
-    if(!signatureData){ alert('Could not capture a signature — try the other option.'); return; }
-    document.getElementById('sgPrevImg').src=signatureData;
-    document.getElementById('sgPrev').style.display='block';
-    document.getElementById('sgUse').disabled=true;
-    document.getElementById('sgClear').style.display='inline-flex';
   });
   document.getElementById('sgClear').addEventListener('click',function(){
     signatureData=null; sigW=0; sigH=0;
@@ -356,7 +396,7 @@
       pdf.setFontSize(9); pdf.setTextColor(90,98,108);
       pdf.text(client+' — signed '+when+' (EAT)',40,y+116);
       pdf.setFontSize(8); pdf.setTextColor(140,148,156);
-      pdf.text('Electronic signature under the Kenya Information and Communications Act (Cap 411A). IP logged at signing.',40,y+130);
+      pdf.text('Electronic signature under the Kenya Information and Communications Act (Cap 411A). Signed from IP '+clientIpText()+' (recorded at signing).',40,y+130);
       pdf.setFontSize(8); pdf.setTextColor(120,130,140);
       pdf.text(ref+' · generated '+when,40,H-40);
       return Promise.resolve(pdf.output('datauristring').split(',')[1]);
@@ -406,7 +446,7 @@
     if(!svcSel) miss.push('a service choice from the dropdown');
     else if(svcSel===OTHER_LABEL && !document.getElementById('sgOther').value.trim()) miss.push('a short description under \u201CSomething else\u201D');
     if(!amt) miss.push('the quoted amount (KES)');
-    if(!signatureData) miss.push('your signature — draw or type it above, then press \u201CUse signature\u201D so it appears under the preview');
+    if(!signatureData) miss.push(mode==='type' ? 'your name typed above — the fancy-font signature preview appears by itself as you type' : 'your signature — draw it in the box, then press \u201CUse signature\u201D');
     else if(!document.getElementById('sgConfirm').checked) miss.push('ticking the confirmation line under your signature preview');
     if(miss.length){
       alert('Almost there \u2014 please add:\n\n\u2022 '+miss.join('\n\u2022 '));
@@ -421,11 +461,13 @@
     buildPdf().then(function(b64){
       var attach={filename:ref+' signed client agreement.pdf',content:b64,type:'application/pdf'};
       var sub='\u270D\uFE0F Signed client agreement \u2014 '+client+' ('+svc+') '+ref;
-      relay(OWNER,sub,htmlSummary(client,svc,amt,phone,ref),'Signed agreement attached.\nClient: '+client+'\nService: '+svc+'\nAmount: KES '+amt+'\nRef: '+ref,attach);
+      relay(OWNER,sub,htmlSummary(client,svc,amt,phone,ref)+'<p style="font-size:11px;color:#55626C">Client IP recorded at signing: '+(CLIENT_IP||'n/a (lookup blocked)')+'</p>','Signed agreement attached.\nClient: '+client+'\nService: '+svc+'\nAmount: KES '+amt+'\nRef: '+ref+'\nClient IP recorded at signing: '+(CLIENT_IP||'n/a (lookup blocked)'),attach);
       relay(em,sub,htmlSummary(client,svc,amt,phone,ref)+'<p style="font-size:12px;color:#55626C">Keep this PDF — it is your signed copy. Questions? Reply to this email or WhatsApp +254 740 793 959.</p>','Signed agreement attached.\n'+client+'\n'+svc+'\nKES '+amt+'\nRef: '+ref+'\nKeep this PDF — it is your signed copy.',attach);
       var m=document.getElementById('sgMsg');
       m.style.display='block';
-      m.innerHTML='<b>Signed &amp; sent ✅</b> — your copy and VirrTech&rsquo;s copy are on their way (ref <b>'+esc(ref)+'</b>). Check your inbox for the PDF. Anything unclear? WhatsApp <b>+254 740 793 959</b> — a human replies within one business day.';
+      m.innerHTML='<b>Signed &amp; sent ✅</b> — your copy and VirrTech&rsquo;s copy are on their way (ref <b>'+esc(ref)+'</b>).<br><a id="sgDl" href="#" class="btn btn-ol btn-sm" style="margin-top:14px;text-decoration:none;">⬇ Download your signed PDF</a><p style="font-size:.8rem;margin:10px 0 0;color:#4C6B49;">Copy is in your inbox too — if it ever lands in spam, this download is your permanent proof. Anything unclear? WhatsApp <b>+254 740 793 959</b>.</p>';
+      var dl=document.getElementById('sgDl');
+      if(dl){ dl.href='data:application/pdf;base64,'+b64; dl.download=ref+' signed client agreement.pdf'; }
       signBtn.textContent='\u2713 Signed \u2014 '+ref;
       signBtn.dataset.done='1';
     }).catch(function(e){
